@@ -1,0 +1,58 @@
+-------------------------------------------------------------------------------
+
+BACKGROUND:
+
+The connection library is used to pass binary data efficiently between
+possibly non-homogeneous systems.  It takes care of all the socket
+level connecting, the binary type negotiations to determine which
+types can be sent across the wite, and the conversion of the binary
+information between the two systems.
+
+If necessary it will use the ntohl and ntohs functions to convert
+shorts and 32-bit integers into network byte order.  It currently
+cannot handle swapping 64-bit long integers (don't be confused by the
+ntohl).
+
+See the conn_t.c file for sample usage and the conn.h header file for
+the function prototypes and comments.  My apologies for the minimal
+documentation.
+
+-------------------------------------------------------------------------------
+
+INSTALLATION:
+
+1) Typing 'make' should be enough to build libconn.a
+
+2) Typing 'make tests' should make the conn_t test program.
+
+3) On one machine run 'conn_t -s 1000' which will turn the machine
+   into a connection server.  It will print a message every 1000
+   milliseconds (1 sec) that it timed out while waiting for a
+   connection.
+
+4) On the same machine or another run 'conn_t -c server-name'.
+   server-name should be the name of the machine in #3.  It will
+   connect to the machine as a client and exchange some information.
+   You can crank up the amount of information sent by added a '-i
+   10000' to run 10000 iterations.
+
+-------------------------------------------------------------------------------
+
+REPOSITORY:
+
+The newest versions of the library are available on the web.
+
+	http://256.com/sources/conn/
+
+-------------------------------------------------------------------------------
+
+AUTHOR:
+
+If you have any questions or problems feel free to send me mail.
+
+Gray Watson
+http://256.com/gray/
+
+-------------------------------------------------------------------------------
+$Id: README,v 1.5 2000/03/09 03:37:47 gray Exp $
+-------------------------------------------------------------------------------

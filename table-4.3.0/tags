@@ -1,0 +1,203 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.6	//
+BITS	table_loc.h	35;"	d
+BITSPERBYTE	table_loc.h	32;"	d
+CC	Makefile	/^CC	= cc$/;"	m
+CFLAGS	Makefile	/^CFLAGS	= -g -I. $(DEFINES)$/;"	m
+DEFAULT_SIZE	table_loc.h	40;"	d
+DEFINES	Makefile	/^DEFINES	= -DNO_MMAP$/;"	m
+DESTDIR	Makefile	/^DESTDIR	= \/usr\/local$/;"	m
+ENTRY_DATA_BUF	table_loc.h	130;"	d
+ENTRY_KEY_BUF	table_loc.h	129;"	d
+HASH_MIX	table_loc.h	86;"	d
+HFLS	Makefile	/^HFLS	= table.h$/;"	m
+INVALID_ERROR	table_loc.h	227;"	d
+ITERATIONS	table_t.c	39;"	d	file:
+LDFLAGS	Makefile	/^LDFLAGS	=$/;"	m
+LIBRARY	Makefile	/^LIBRARY	= libtable.a$/;"	m
+LINEAR_MAGIC	table_loc.h	39;"	d
+MAP_FAILED	table.c	56;"	d	file:
+MAX_ALIGNMENT	table_loc.h	41;"	d
+MAX_DATA_SIZE	table_t.c	71;"	d	file:
+MAX_ENTRIES	table_t.c	40;"	d	file:
+MAX_ORDER_DUMP	table_t.c	41;"	d	file:
+MAX_QSORT_MANY	table_loc.h	55;"	d
+MAX_QSORT_SPLITS	table_loc.h	48;"	d
+MODE_ADJUST	table_t.c	53;"	d	file:
+MODE_CLEAR	table_t.c	43;"	d	file:
+MODE_DELETE	table_t.c	47;"	d	file:
+MODE_DELETE_FIRST	table_t.c	48;"	d	file:
+MODE_FIRST	table_t.c	49;"	d	file:
+MODE_INFO	table_t.c	52;"	d	file:
+MODE_INSERT	table_t.c	44;"	d	file:
+MODE_MAX	table_t.c	54;"	d	file:
+MODE_NEXT	table_t.c	50;"	d	file:
+MODE_OVERWRITE	table_t.c	45;"	d	file:
+MODE_RETRIEVE	table_t.c	46;"	d	file:
+MODE_THIS	table_t.c	51;"	d	file:
+NO_MMAP	table.c	45;"	d	file:
+NO_MMAP	table_loc.h	28;"	d
+OBJS	Makefile	/^OBJS	= table.o$/;"	m
+RANDOM_VALUE	table_t.c	34;"	d	file:
+RANLIB	Makefile	/^RANLIB	= ranlib$/;"	m
+SAMPLE_SIZE	table_t.c	38;"	d	file:
+SET_POINTER	table_loc.h	99;"	d
+SHOULD_TABLE_GROW	table_loc.h	62;"	d
+SHOULD_TABLE_SHRINK	table_loc.h	63;"	d
+SPECIAL_CHARS	table_util.c	34;"	d	file:
+TABLE_ERROR_ALIGNMENT	table.h	61;"	d
+TABLE_ERROR_ALLOC	table.h	50;"	d
+TABLE_ERROR_ARG_NULL	table.h	46;"	d
+TABLE_ERROR_COMPARE	table.h	62;"	d
+TABLE_ERROR_EMPTY	table.h	59;"	d
+TABLE_ERROR_FREE	table.h	63;"	d
+TABLE_ERROR_LINEAR	table.h	51;"	d
+TABLE_ERROR_MMAP	table.h	57;"	d
+TABLE_ERROR_MMAP_NONE	table.h	56;"	d
+TABLE_ERROR_MMAP_OP	table.h	58;"	d
+TABLE_ERROR_NONE	table.h	44;"	d
+TABLE_ERROR_NOT_EMPTY	table.h	60;"	d
+TABLE_ERROR_NOT_FOUND	table.h	49;"	d
+TABLE_ERROR_OPEN	table.h	52;"	d
+TABLE_ERROR_OVERWRITE	table.h	48;"	d
+TABLE_ERROR_PNT	table.h	45;"	d
+TABLE_ERROR_READ	table.h	54;"	d
+TABLE_ERROR_SEEK	table.h	53;"	d
+TABLE_ERROR_SIZE	table.h	47;"	d
+TABLE_ERROR_WRITE	table.h	55;"	d
+TABLE_FILE	table_t.c	36;"	d	file:
+TABLE_FLAG_ADJUST_DOWN	table.h	82;"	d
+TABLE_FLAG_AUTO_ADJUST	table.h	76;"	d
+TABLE_MAGIC	table_loc.h	38;"	d
+TABLE_MAIN	table.c	61;"	d	file:
+TABLE_POINTER	table_loc.h	116;"	d
+TABLE_POINTER	table_loc.h	120;"	d
+TEST	Makefile	/^TEST	= table_t$/;"	m
+TEST_VALUE	table_t.c	70;"	d	file:
+UTIL	Makefile	/^UTIL	= table_util$/;"	m
+WRITE_MODE	table_util.c	33;"	d	file:
+__TABLE_H__	table.h	25;"	d
+__TABLE_LOC_H__	table_loc.h	25;"	d
+auto_adjust_b	table_t.c	/^static	char		auto_adjust_b = 0;	\/* auto-adjust flag *\/$/;"	v	file:
+basic	table_t.c	/^static	void	basic(table_t *tab_p)$/;"	f	file:
+call_c	table_t.c	/^static	int		call_c = 0;		\/* number of table calls *\/$/;"	v	file:
+compare_t	table_loc.h	/^typedef int	(*compare_t)(const void *element1_p, const void *element2_p,$/;"	t
+dump_table	table_util.c	/^static	void	dump_table(table_t *tab_p)$/;"	f	file:
+en_data	table_t.c	/^  void			*en_data;		\/* value to store *\/$/;"	m	struct:entry_st	file:
+en_data_size	table_t.c	/^  int			en_data_size;		\/* size of value *\/$/;"	m	struct:entry_st	file:
+en_free_b	table_t.c	/^  int			en_free_b;		\/* free flag *\/$/;"	m	struct:entry_st	file:
+en_key	table_t.c	/^  void			*en_key;		\/* key to store *\/$/;"	m	struct:entry_st	file:
+en_key_size	table_t.c	/^  int			en_key_size;		\/* size of key *\/$/;"	m	struct:entry_st	file:
+en_next_p	table_t.c	/^  struct entry_st	*en_next_p;		\/* next pointer *\/$/;"	m	struct:entry_st	typeref:struct:entry_st::entry_st	file:
+entry_data_buf	table.c	/^static	unsigned char	*entry_data_buf(const table_t *table_p,$/;"	f	file:
+entry_size	table.c	/^static	int	entry_size(const table_t *table_p, const unsigned int key_size,$/;"	f	file:
+entry_st	table_t.c	/^typedef struct entry_st {$/;"	s	file:
+entry_t	table_t.c	/^} entry_t;$/;"	t	typeref:struct:entry_st	file:
+error_str_t	table_loc.h	/^} error_str_t;$/;"	t	typeref:struct:__anon2
+errors	table_loc.h	/^static	error_str_t	errors[] = {$/;"	v
+es_error	table_loc.h	/^  int		es_error;		\/* error number *\/$/;"	m	struct:__anon2
+es_string	table_loc.h	/^  char		*es_string;		\/* assocaited string *\/$/;"	m	struct:__anon2
+expand_chars	table_util.c	/^int	expand_chars(const void *buf, const int buf_size,$/;"	f
+external_compare	table.c	/^static int	external_compare(const void *p1, const void *p2,$/;"	f	file:
+external_compare_align	table.c	/^static int	external_compare_align(const void *p1, const void *p2,$/;"	f	file:
+external_compare_align_pos	table.c	/^static int	external_compare_align_pos(const void *p1, const void *p2,$/;"	f	file:
+external_compare_pos	table.c	/^static int	external_compare_pos(const void *p1, const void *p2,$/;"	f	file:
+first_entry	table.c	/^static	table_entry_t	*first_entry(const table_t *table_p,$/;"	f	file:
+hash	table.c	/^static	unsigned int	hash(const unsigned char *key,$/;"	f	file:
+insert_sort	table.c	/^static	int	insert_sort(unsigned char *first_p, unsigned char *last_p,$/;"	f	file:
+io_test	table_t.c	/^static	void	io_test(table_t *tab_p)$/;"	f	file:
+large_b	table_t.c	/^static	char		large_b = 0;		\/* large table flag *\/$/;"	v	file:
+local_compare	table.c	/^static int	local_compare(const void *p1, const void *p2,$/;"	f	file:
+local_compare_pos	table.c	/^static int	local_compare_pos(const void *p1, const void *p2,$/;"	f	file:
+main	table_t.c	/^int	main(int argc, char ** argv)$/;"	f
+main	table_util.c	/^int	main(int argc, char **argv)$/;"	f
+mode_weights	table_t.c	/^static	int	mode_weights[] = {$/;"	v	file:
+next_entry	table.c	/^static	table_entry_t	*next_entry(const table_t *table_p,$/;"	f	file:
+open	table.c	46;"	d	file:
+order_test	table_t.c	/^static	void	order_test(table_t *tab_p)$/;"	f	file:
+random_block	table_t.c	/^static	void	*random_block(int *size_p)$/;"	f	file:
+rcs_id	table.c	/^static	char	*rcs_id =$/;"	v	file:
+rcs_id	table_t.c	/^static	char	*rcs_id =$/;"	v	file:
+rcs_id	table_util.c	/^static	char	*rcs_id =$/;"	v	file:
+split	table.c	/^static	int	split(unsigned char *first_p, unsigned char *last_p,$/;"	f	file:
+stress	table_t.c	/^static	void	stress(table_t *tab_p, const int iter_n, const int mmaping_b)$/;"	f	file:
+swap_bytes	table.c	/^static	void	swap_bytes(unsigned char *item1_p, unsigned char *item2_p,$/;"	f	file:
+ta_alloc_func	table_loc.h	/^  table_mem_alloc_t	ta_alloc_func;	\/* memory allocation function *\/$/;"	m	struct:table_st
+ta_bucket_n	table_loc.h	/^  unsigned int		ta_bucket_n;	\/* num of buckets, should be 2^X *\/$/;"	m	struct:table_st
+ta_buckets	table_loc.h	/^  table_entry_t		**ta_buckets;	\/* array of linked lists *\/$/;"	m	struct:table_st
+ta_data_align	table_loc.h	/^  unsigned int		ta_data_align;	\/* data alignment value *\/$/;"	m	struct:table_st
+ta_entry_n	table_loc.h	/^  unsigned int		ta_entry_n;	\/* num of entries in all buckets *\/$/;"	m	struct:table_st
+ta_file_size	table_loc.h	/^  unsigned long		ta_file_size;	\/* size of on-disk space *\/$/;"	m	struct:table_st
+ta_flags	table_loc.h	/^  unsigned int		ta_flags;	\/* table's flags defined in table.h *\/$/;"	m	struct:table_st
+ta_free_func	table_loc.h	/^  table_mem_free_t	ta_free_func;	\/* memory free function *\/$/;"	m	struct:table_st
+ta_linear	table_loc.h	/^  table_linear_t	ta_linear;	\/* linear tracking *\/$/;"	m	struct:table_st
+ta_magic	table_loc.h	/^  unsigned int		ta_magic;	\/* magic number *\/$/;"	m	struct:table_st
+ta_mem_pool	table_loc.h	/^  void			*ta_mem_pool;	\/* pointer to some memory pool *\/$/;"	m	struct:table_st
+ta_mmap	table_loc.h	/^  struct table_st	*ta_mmap;	\/* mmaped table *\/$/;"	m	struct:table_st	typeref:struct:table_st::table_st
+ta_resize_func	table_loc.h	/^  table_mem_resize_t	ta_resize_func;	\/* memory resize function *\/$/;"	m	struct:table_st
+table_adjust	table.c	/^int	table_adjust(table_t *table_p, const int bucket_n)$/;"	f
+table_alloc	table.c	/^table_t		*table_alloc(const unsigned int bucket_n, int *error_p)$/;"	f
+table_alloc_in_pool	table.c	/^table_t		*table_alloc_in_pool(const unsigned int bucket_n,$/;"	f
+table_attr	table.c	/^int	table_attr(table_t *table_p, const int attr)$/;"	f
+table_clear	table.c	/^int	table_clear(table_t *table_p)$/;"	f
+table_compare_t	table.h	/^typedef int (*table_compare_t)(const void *key1, const int key1_size,$/;"	t
+table_delete	table.c	/^int	table_delete(table_t *table_p,$/;"	f
+table_delete_first	table.c	/^int	table_delete_first(table_t *table_p,$/;"	f
+table_entry	table.c	/^int	table_entry(table_t *table_p, table_entry_t *entry_p,$/;"	f
+table_entry_ext_t	table_loc.h	/^typedef table_entry_t	table_entry_ext_t;$/;"	t
+table_entry_pos	table.c	/^int	table_entry_pos(table_t *table_p, table_linear_t *linear_p,$/;"	f
+table_entry_st	table_loc.h	/^typedef struct table_entry_st {$/;"	s
+table_entry_t	table.h	/^typedef void	table_entry_t;$/;"	t
+table_entry_t	table_loc.h	/^} table_entry_t;$/;"	t	typeref:struct:table_entry_st
+table_ext_t	table_loc.h	/^typedef table_t	table_ext_t;$/;"	t
+table_first	table.c	/^int	table_first(table_t *table_p,$/;"	f
+table_first_r	table.c	/^int	table_first_r(table_t *table_p, table_linear_t *linear_p,$/;"	f
+table_free	table.c	/^int	table_free(table_t *table_p)$/;"	f
+table_info	table.c	/^int	table_info(table_t *table_p, int *num_buckets_p, int *num_entries_p)$/;"	f
+table_insert	table.c	/^int	table_insert(table_t *table_p,$/;"	f
+table_insert_kd	table.c	/^int	table_insert_kd(table_t *table_p,$/;"	f
+table_linear_t	table.h	/^} table_linear_t;$/;"	t	typeref:struct:__anon1
+table_mem_alloc_t	table.h	/^typedef void	*(*table_mem_alloc_t)(void *pool_p, const unsigned long size);$/;"	t
+table_mem_free_t	table.h	/^typedef int	(*table_mem_free_t)(void *pool_p, void *addr,$/;"	t
+table_mem_resize_t	table.h	/^typedef void	*(*table_mem_resize_t)(void *pool_p, void *old_addr,$/;"	t
+table_mmap	table.c	/^table_t		*table_mmap(const char *path, int *error_p)$/;"	f
+table_munmap	table.c	/^int	table_munmap(table_t *table_p)$/;"	f
+table_next	table.c	/^int	table_next(table_t *table_p,$/;"	f
+table_next_r	table.c	/^int	table_next_r(table_t *table_p, table_linear_t *linear_p,$/;"	f
+table_order	table.c	/^table_entry_t	**table_order(table_t *table_p, table_compare_t compare,$/;"	f
+table_order_free	table.c	/^int	table_order_free(table_t *table_p, table_entry_t **table_entries,$/;"	f
+table_order_pos	table.c	/^table_linear_t	*table_order_pos(table_t *table_p, table_compare_t compare,$/;"	f
+table_order_pos_free	table.c	/^int	table_order_pos_free(table_t *table_p, table_linear_t *table_entries,$/;"	f
+table_read	table.c	/^table_t	*table_read(const char *path, int *error_p)$/;"	f
+table_retrieve	table.c	/^int	table_retrieve(table_t *table_p,$/;"	f
+table_set_data_alignment	table.c	/^int	table_set_data_alignment(table_t *table_p, const int alignment)$/;"	f
+table_shell_st	table_loc.h	/^typedef struct table_shell_st {$/;"	s
+table_shell_t	table_loc.h	/^} table_shell_t;$/;"	t	typeref:struct:table_shell_st
+table_st	table_loc.h	/^typedef struct table_st {$/;"	s
+table_strerror	table.c	/^const char	*table_strerror(const int error)$/;"	f
+table_t	table.h	/^typedef	void	table_t;$/;"	t
+table_t	table_loc.h	/^} table_t;$/;"	t	typeref:struct:table_st
+table_this	table.c	/^int	table_this(table_t *table_p,$/;"	f
+table_this_r	table.c	/^int	table_this_r(table_t *table_p, table_linear_t *linear_p,$/;"	f
+table_type_size	table.c	/^int	table_type_size(void)$/;"	f
+table_write	table.c	/^int	table_write(const table_t *table_p, const char *path, const int mode)$/;"	f
+te_data_size	table_loc.h	/^  unsigned int		te_data_size;	\/* size of data *\/$/;"	m	struct:table_entry_st
+te_data_size	table_loc.h	/^  unsigned int		te_data_size;	\/* size of data *\/$/;"	m	struct:table_shell_st
+te_key_buf	table_loc.h	/^  unsigned char		te_key_buf[1];	\/* 1st byte of key buf *\/$/;"	m	struct:table_entry_st
+te_key_size	table_loc.h	/^  unsigned int		te_key_size;	\/* size of data *\/$/;"	m	struct:table_entry_st
+te_key_size	table_loc.h	/^  unsigned int		te_key_size;	\/* size of data *\/$/;"	m	struct:table_shell_st
+te_next_p	table_loc.h	/^  struct table_entry_st	*te_next_p;	\/* pointer to next in the list *\/$/;"	m	struct:table_entry_st	typeref:struct:table_entry_st::table_entry_st
+te_next_p	table_loc.h	/^  struct table_shell_st	*te_next_p;	\/* pointer to next in the list *\/$/;"	m	struct:table_shell_st	typeref:struct:table_shell_st::table_shell_st
+test_eq	table_t.c	/^static	int	test_eq(table_t *tab1_p, table_t *tab2_p, const int verb_b)$/;"	f	file:
+this_entry	table.c	/^static	table_entry_t	*this_entry(const table_t *table_p,$/;"	f	file:
+tl_bucket_c	table.h	/^  unsigned int	tl_bucket_c;	\/* where in the table buck array we are *\/$/;"	m	struct:__anon1
+tl_entry_c	table.h	/^  unsigned int	tl_entry_c;	\/* in the bucket, which entry we are on *\/$/;"	m	struct:__anon1
+tl_magic	table.h	/^  unsigned int	tl_magic;	\/* magic structure to ensure correct init *\/$/;"	m	struct:__anon1
+usage	table_t.c	/^static	void	usage(void)$/;"	f	file:
+usage	table_util.c	/^static	void	usage(void)$/;"	f	file:
+verbose_b	table_t.c	/^static	char		verbose_b = 0;		\/* verbose messages flag *\/$/;"	v	file:
+version_id	table.c	/^static char *version_id = "$TableVersion: 4.3.0 March 8, 2000 $";$/;"	v	file:

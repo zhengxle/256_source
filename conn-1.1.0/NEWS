@@ -1,0 +1,29 @@
+-------------------------------------------------------------------------------
+$Id: NEWS,v 1.5 2000/03/09 03:37:46 gray Exp $
+-------------------------------------------------------------------------------
+
+Version 1.1.0:
+
+	* Releasing libconn version 1.1.0.
+	* Phased in various minor lycos changes.
+	* Moved relevant rawio functions into conn.c to get rid of rawio.c.
+	* Fixed a number of header problems in internal and external functions.
+
+Version 1.0.2:
+
+	* Fixed problems with conn_accept creating two socket descriptors.
+	* Added socket arg to conn_info to return associated fd for connection.
+
+Version 1.0.1:
+
+	* Added permission notices.
+
+Version 1.0.0:
+
+	* Initial release.
+	* Added timing and rate statistics to conn_t.
+	* Added conn_check_magic routine.
+        * Reduced the number start read/writes.
+	* Achieved 5mbit btw two systems.
+	* Added conn_info statistics for the connection.
+	* Changed the default buffer size from 16k to 1k.

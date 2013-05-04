@@ -1,0 +1,86 @@
+-------------------------------------------------------------------------------
+$Id: TODO,v 1.24 1995/03/31 21:59:27 gray Exp $
+-------------------------------------------------------------------------------
+
+THINGS TO DO:
+
+- dump out the default values for the arguments:
+	- --default
+	- need a routine to display the value of the type (see type.c)
+	- debug mode will dump what values the variables actually got
+- have a --type call which explains what the type of the arguments are
+- have a routine that processes the arguments and prunes the ones out it
+	matched with but no error on any additional -- for handling X11 args
+- maybe get rid of the %? messages.  They may be confusing to normal users.
+	- maybe go to a single character at the end of the line:
+		I,F,S,SA,B,O,H,L
+- maybe have some ARGV_FILE and ARGV_DIR types which are strings but
+	which check for the existance,readability,etc. of the path
+- should check that argv_xor either sides are true arguments
+- maybe some hack of ARGV_ARRAY1 or something to have an array force
+	at least 1 argument (2,3,4,5,?)
+- number handling:
+	- allow 0xab, 012, 1.5, posix \y, etc. numbers for all input
+		as well as 100,000 and maybe exotic 1k, 1m, 1b (for 512?)
+	- then have octal, hex, float force those types
+	- have a ARGV_NUMBER flag which will conform the number
+	- decimal/float/octal will take specific types
+- need POSIX regulations for argument processing
+- maybe a better way of handling or's.  { ARGV_OR, 'a', 'b' }.  therefore
+	you can have a | b and b | c without getting a | c.
+- some sort of output format for shells to determine the possible arguments
+	and their type or usage
+- better verifying the type of the input from the user.
+	- if it is an integer, complain about -d 5a
+	- maybe just a warning
+- maybe a shell-script argument enhancer:
+	- designed to pass through eval to set variables
+	- you pass in the struct with shell variables types, etc.
+- maybe a argument type which calls a function when an argument is specified
+	possibly passing in a char * argument.
+- some sort of verbose flag (maybe env) to dump which argument gets what
+	- --trace which does exits at the end
+- have a set of argv file argument defines to standardize option args:
+	ARGV_ARG_FILE, PATH, NUMBER, VALUE, FLOAT, etc.
+
+-------------------------------------------------------------------------------
+
+ENV TODO:
+
+- MAYBE or not: env format, exit value, enabling of long options, enabling
+	of -W=all handling, 
+- number handling - turn on/off special formats
+- maybe have some flag to enable argument type displaying: + for arrays
+
+-------------------------------------------------------------------------------
+
+USAGE TODO:
+
+- display arrays better in short/long usage messages
+- better type displaying that is not %...
+- print out the ARG_OR relationship:
+	- multi [-c|-r|-w] [-5ns] ...
+	- with --usage-long:
+		-c ...
+		or
+		-r ...
+- sort the args:
+	- first the OR and XOR:
+		- [-a | -b] 
+		-a ...
+		or
+		-b ...
+	- next all the flags sorted:
+		- [-aBCZ]
+	- next all the singles sorted:
+		- [-a xxx] [-b xxx]
+	- then the mandatories
+	- then the maybe's
+
+-------------------------------------------------------------------------------
+
+SHELL:
+
+- handle output for perl, tcl scripts
+
+-------------------------------------------------------------------------------

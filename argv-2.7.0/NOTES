@@ -1,0 +1,40 @@
+-------------------------------------------------------------------------------
+$Id: NOTES,v 1.9 1994/11/18 17:22:26 gray Exp $
+-------------------------------------------------------------------------------
+
+LIMITATIONS:
+
+-	the library will always test for the long options, then the
+	short-option strings.  So if the SHORT_PREFIX is "--" and LONG
+	"-" (for example) it will never see the SHORT options.
+
+-	the routines do not modify the argument list but (in the case of
+	character pointers), use the list to store the values in stead of
+	allocating extra space.  this means that until the program is
+	finished processing the args, they should not be modified.
+
+-	you should not combine XOR'd and OR'd items because the OR'd
+	ones can never be specified.
+
+-------------------------------------------------------------------------------
+
+QUESTIONS:
+
+	install -c -s -o -- -gray a b
+		if c and s don't but o does have args, -gray is the argument
+		to -o correct?
+	install -a -b -- -gray c d
+		if a and b both have args, -gray is the argument to -a correct?
+	- should usage print out help or version information by default?
+	- case-insensitive matching with long arguments?
+
+-------------------------------------------------------------------------------
+
+- when handing gcc's -Wall construct, for instance, the lib can do it
+	one of three ways:
+
+	- a special long option "W" which will accept --Wall returning "all"
+	- -W=all
+	- -W all
+
+-------------------------------------------------------------------------------

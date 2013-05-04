@@ -1,0 +1,804 @@
+<html lang="en">
+<head>
+<title>Argv Tutorial</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Argv Tutorial">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="top" href="#Top">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<h1 class="settitle">Argv Tutorial</h1>
+<div class="node">
+<p><hr>
+<a name="Top"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="#Copying">Copying</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#dir">(dir)</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#dir">(dir)</a>
+
+</div>
+
+<h2 class="unnumbered">Argv Library</h2>
+
+<p><a name="index-introduction-1"></a><a name="index-author-2"></a>
+The argv library has been designed to handle the argument processing
+needs of most Unix software and to provide a consistent usage framework
+for user applications.
+
+   <p>The library is reasonably portable having been run successfully on at
+least the following operating systems: AIX, BSDI, DG/UX, FreeBSD, HPUX,
+Irix, Linux, MS-DOG, NeXT, OSF, Solaris, SunOS, Ultrix, Unixware, and
+even Unicos on a Cray Y-MP.
+
+   <p>The package includes the library, configuration scripts, shell-script
+utility application, test program, and extensive documentation (text,
+texi, info, ps).  The library and its documentation are available online
+at URL <a href="http://256.com/sources/argv/">http://256.com/sources/argv/</a>.  See <a href="#How-To-Get">How To Get</a>.
+
+   <p>I can be reached via my web page <a href="http://256.com/gray/">http://256.com/gray/</a> with any
+questions or feedback.  Please include the version number of the library
+that you are using as well as your machine and operating system types.
+
+   <p>Gray Watson.
+
+<ul class="menu">
+<li><a accesskey="1" href="#Copying">Copying</a>:                      Library copying conditions. 
+<li><a accesskey="2" href="#Overview">Overview</a>: 			Description of how to use the library. 
+<li><a accesskey="3" href="#Details">Details</a>:                      Details about the library's operations. 
+<li><a accesskey="4" href="#General-Usage">General Usage</a>: 		Invoking Programs Which Use the Library. 
+<li><a accesskey="5" href="#Index-of-Concepts">Index of Concepts</a>:            Index of concepts in the manual. 
+</ul>
+
+<div class="node">
+<p><hr>
+<a name="Copying"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="#Overview">Overview</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#Top">Top</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
+
+</div>
+
+<h2 class="chapter">1 Library Copying Conditions</h2>
+
+<p><a name="index-copying-3"></a><a name="index-license-4"></a><a name="index-library-permissions-5"></a><a name="index-permissions-of-the-library-6"></a>
+Copyright 1992 to 2010 by Gray Watson.
+
+   <p>Gray Watson makes no representations about the suitability of the
+software described herein for any purpose.  It is provided &ldquo;as is&rdquo;
+without express or implied warranty.  The name of Gray Watson cannot be
+used in advertising or publicity pertaining to distribution of the
+document or software without specific, written prior permission.
+
+   <p>Permission to use, copy, modify, and distribute this software for any
+purpose and without fee is hereby granted, provided that the above
+copyright notice and this permission notice appear in all copies, and
+that the name of Gray Watson not be used in advertising or publicity
+pertaining to distribution of the document or software without specific,
+written prior permission.
+
+   <p>Gray Watson makes no representations about the suitability of the
+software described herein for any purpose.  It is provided "as is"
+without express or implied warranty.
+
+<div class="node">
+<p><hr>
+<a name="Overview"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="#Details">Details</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#Copying">Copying</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
+
+</div>
+
+<h2 class="chapter">2 How to Use the Library</h2>
+
+<ul class="menu">
+<li><a accesskey="1" href="#Concepts">Concepts</a>: 			General concepts behind the library. 
+<li><a accesskey="2" href="#How-To-Get">How To Get</a>: 			How to get the library. 
+<li><a accesskey="3" href="#Installation">Installation</a>:                 How to install the library. 
+<li><a accesskey="4" href="#Getting-Started">Getting Started</a>:              Getting started with the library. 
+</ul>
+
+<div class="node">
+<p><hr>
+<a name="Concepts"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="#How-To-Get">How To Get</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#Overview">Overview</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#Overview">Overview</a>
+
+</div>
+
+<h3 class="section">2.1 The General Concepts Behind the Library</h3>
+
+<p><a name="index-command-line-arguments-7"></a><a name="index-unix-command-line-8"></a>
+One thing that almost all Unix executables need to do is process the
+<dfn>command line arguments</dfn>.  Whether this is to enable verbose mode or
+specify the files for a utility to work on, code has to be written to
+process these user specified options.
+
+<pre class="example">             int main(int argc, char **argv)
+             {
+                     ...
+             }
+</pre>
+   <p>As you must know, the command line arguments in most Unix systems are
+passed in as arguments to <code>main()</code> (seen above).  The <code>argc</code>
+integer argument contains the number of arguments specified.  The
+<code>argv</code> variable holds the arguments themselves.  It can be thought
+of as a pointer to a list of character pointers &ndash; or an array of
+character pointers.
+
+   <p>To get a particular argument from <code>argv</code>, you use <code>argv[x]</code>
+where <code>x</code> is an integer whose value is from 0 to <code>argc - 1</code>. 
+In most Unix implementations, the zeroth argument is always the name the
+program was executed with.  For instance, if you typed `<samp><span class="samp">./ls -al</span></samp>',
+<code>argc</code> would equal 2 and the value of <code>argv[0]</code> would be
+`<samp><span class="samp">"./ls"</span></samp>'.  The value for <code>argv[1]</code> would be `<samp><span class="samp">"-al"</span></samp>'.
+
+   <p><a name="index-getopt-9"></a>Currently, most programmers either write code on a per program basis to
+process arguments or they use the <code>getopt()</code> routine.  Writing
+argument processing code for each program results in improper and
+inconsistent argument handling.  Although better, <code>getopt()</code> does
+not provide the structure needed to ensure conformity in argument
+processing and still requires significant code to be written by the
+programmer.
+
+   <p>The goal for this library was to achieve a standardized way of
+processing arguments &ndash; especially in terms of error and usage messages. 
+Important consideration was also given to reducing the programming time
+necessary to enable the functionality.
+
+<div class="node">
+<p><hr>
+<a name="How-To-Get"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="#Installation">Installation</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#Concepts">Concepts</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#Overview">Overview</a>
+
+</div>
+
+<h3 class="section">2.2 How to get the library.</h3>
+
+<p><a name="index-downloading-the-library-10"></a><a name="index-getting-the-source-11"></a>
+The newest versions of the argv library are available on the web at
+<a href="http://256.com/sources/argv/">http://256.com/sources/argv/</a>.
+
+   <p>The versions in this repository also include such files as a postscript
+version of the manual and other large files which may not have been
+included in the distribution you received.
+
+<div class="node">
+<p><hr>
+<a name="Installation"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="#Getting-Started">Getting Started</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#How-To-Get">How To Get</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#Overview">Overview</a>
+
+</div>
+
+<h3 class="section">2.3 Installing the Library</h3>
+
+<p><a name="index-installing-the-library-12"></a><a name="index-compiling-the-library-13"></a><a name="index-building-the-library-14"></a><a name="index-configuring-the-library-15"></a><a name="index-making-the-library-16"></a>
+To configure, compile, and install the library, follow these steps
+carefully.
+
+     <ol type=1 start=1>
+
+     <p><a name="index-configure-script-17"></a><a name="index-conf_002eh-file-18"></a>
+<li>Type <kbd>sh ./configure</kbd> to configure the library.  You may want
+to first examine the <samp><span class="file">config.help</span></samp> file for some information about
+configure.  Configure should generate the <samp><span class="file">Makefile</span></samp> and some
+configuration files automatically.
+
+     <p><em>NOTE</em>: It seems that some versions of tr (especially from HP-UX)
+don't understand <code>tr '[a-z]' '[A-Z]'</code>.  Since configure uses tr
+often, you may need to either get GNU's tr (in their textutils package)
+or generate the <samp><span class="file">Makefile</span></samp> and <samp><span class="file">conf.h</span></samp> files by hand.
+
+     <li>You may want to examine the <samp><span class="file">Makefile</span></samp> and <samp><span class="file">conf.h</span></samp> files
+created by configure to make sure it did its job correctly.
+
+     <li>Typing <kbd>make</kbd> should be enough to build <samp><span class="file">libargv.a</span></samp>
+and the <samp><span class="file">argv_shell</span></samp> utility.  If it does not work, please send me
+some notes so future users can profit from your experiences.
+
+     <p><a name="index-ANSI_002dC-compiler-19"></a>
+<em>NOTE</em>: The code is pretty dependent on a good ANSI-C compiler.  If
+the configure script gives the `<samp><span class="samp">WARNING</span></samp>' that you do not have an
+ANSI-C compiler, you may still be able to add some sort of option to
+your compiler to make it ANSI.  If there such is an option, please send
+it to the author so it can be added to the configure script.
+
+     <li>Typing <kbd>make tests</kbd> should build the <samp><span class="file">argv_t</span></samp> test
+program.  This can be run and given arguments to test the various
+library features.
+
+     <li>Typing <kbd>make install</kbd> should install the <samp><span class="file">libargv.a</span></samp>
+library in <samp><span class="file">/usr/local/lib</span></samp>, the <samp><span class="file">argv_shell</span></samp> utility in
+<samp><span class="file">/usr/local/bin</span></samp>, and the <samp><span class="file">argv.info</span></samp> documentation file in
+<samp><span class="file">/usr/local/info</span></samp>.
+
+     <p>You may have specified a `<samp><span class="samp">--prefix=PATH</span></samp>' option to configure in
+which can `<samp><span class="samp">/usr/local</span></samp>' will have been replaced with `<samp><span class="samp">PATH</span></samp>'.
+
+        </ol>
+
+   <p>See the Getting Started section to get up and running with the library. 
+See <a href="#Getting-Started">Getting Started</a>.
+
+<div class="node">
+<p><hr>
+<a name="Getting-Started"></a>
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#Installation">Installation</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#Overview">Overview</a>
+
+</div>
+
+<h3 class="section">2.4 Getting Started with the Library</h3>
+
+<p><a name="index-quick-start-20"></a><a name="index-getting-started-21"></a><a name="index-jump-start-22"></a><a name="index-how-to-begin-23"></a><a name="index-where-to-begin-24"></a>
+This section should give you a quick idea on how to get going.
+
+     <ol type=1 start=1>
+
+     <li>Make sure you have the latest version of the library.  It is
+available on the web at <a href="http://256.com/sources/argv/">http://256.com/sources/argv/</a>.  See <a href="#How-To-Get">How To Get</a>.
+
+     <li>Follow the installation instructions on how to configure and
+make and install the library (i.e. type: <kbd>make install</kbd>). 
+See <a href="#Installation">Installation</a>.
+
+     <li>Examine the <samp><span class="file">argv_t.c</span></samp> test program source to see an
+example of how to program with the library.  After adding the
+appropriate <code>argv_t</code> structure array to your main source file, you
+need to compile and link your programs with the library.
+
+     <li>The first time your program is run, the library makes a number
+of checks as to the validity of the argument structures being used.  You
+may have to note and fix reported problems.
+
+     <li>Run your program with the `<samp><span class="samp">--usage</span></samp>' argument and voila.
+
+        </ol>
+
+<div class="node">
+<p><hr>
+<a name="Details"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="#General-Usage">General Usage</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#Overview">Overview</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
+
+</div>
+
+<h2 class="chapter">3 The Library's Operations</h2>
+
+<ul class="menu">
+<li><a accesskey="1" href="#Argv_005ft-Structure">Argv_t Structure</a>:              The argv_t structure and it's usage. 
+<li><a accesskey="2" href="#Special-Short-Args">Special Short Args</a>:            The special ar_short_arg values. 
+<li><a accesskey="3" href="#Types-of-Variables">Types of Variables</a>:            The different variable types. 
+<li><a accesskey="4" href="#Variable-Arrays">Variable Arrays</a>:               Using arguments which ``absorb'' arrays. 
+</ul>
+
+<div class="node">
+<p><hr>
+<a name="Argv_t-Structure"></a>
+<a name="Argv_005ft-Structure"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="#Special-Short-Args">Special Short Args</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#Details">Details</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#Details">Details</a>
+
+</div>
+
+<h3 class="section">3.1 The argv_t Structure and It's Usage</h3>
+
+<p>The argv_t argument structure is as follows:
+
+<pre class="example">     typedef struct {
+             char    ar_short_arg;           /* short argument, 'd' if '-d' */
+             char    *ar_long_arg;           /* long version of arg, '--delete' */
+             short   ar_type;                /* type of variable */
+             void    *ar_variable;           /* address of associated variable */
+             char    *ar_var_label;          /* label for variable description */
+             char    *ar_comment;            /* comment for usage message */
+     } argv_t;
+</pre>
+   <p>The <code>ar_short_arg</code> element contains the character value of the
+short option ('d' for `<samp><span class="samp">-d</span></samp>') or special codes such as ARGV_LAST
+which identifies the last element in the array.  See <a href="#Special-Short-Args">Special Short Args</a>.
+
+   <p>The <code>ar_long_arg</code> element (if not-NULL) holds the string which is
+the long version of <code>ar_short_arg</code>.  For instance, with `<samp><span class="samp">-d</span></samp>',
+you might have "delete".  This would mean that `<samp><span class="samp">-d</span></samp>' and
+`<samp><span class="samp">--delete</span></samp>' would be equivalent.  `<samp><span class="samp">--</span></samp>' is the long-option
+prefix per POSIX specs.
+
+   <p>You would define an array of these arguments at the top of the file with
+<code>main()</code> in it.
+
+<pre class="example">     static char copy = ARGV_FALSE;
+     
+     static argv_t args[] = {
+       { 'c', "copy", ARGV_BOOL, &amp;cp_files, NULL, "copy-files flag" },
+       { 'g', "group", ARGV_CHAR_P, &amp;group, "group", "name of group to set" },
+       ...
+       { ARGV_LAST }
+     };
+     
+     ...
+     
+     int main(int argc, char ** argv)
+     {
+       argv_process(args, argc, argv);
+     }
+</pre>
+   <div class="node">
+<p><hr>
+<a name="Special-Short-Args"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="#Types-of-Variables">Types of Variables</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#Argv_005ft-Structure">Argv_t Structure</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#Details">Details</a>
+
+</div>
+
+<h3 class="section">3.2 The Special ar_short_arg Values</h3>
+
+<p>There are 3 types of arguments:
+
+     <dl>
+<dt><dfn>optional</dfn><dd>Arguments that may or may not be supplied by the user.
+
+     <br><dt><dfn>mandatory</dfn><dd>Arguments that must be supplied by the user.  For instance grep must be
+given an expression on the command line.
+
+     <p>If the argument is a mandatory argument which has no -%c prefix then the
+<code>ar_short_arg</code> element should be assigned ARGV_MAND.
+
+     <br><dt><dfn>maybe</dfn><dd>Arguments that might be specified by the caller but are not mandatory. 
+For instance, you can grep a file or you can grep standard-input.  The
+file should be a maybe argument.
+
+     <p>If this is a maybe argument then use ARGV_MAYBE in the
+<code>ar_short_arg</code> field.
+
+   </dl>
+
+   <p>To mark the last entry in the structure list use ARGV_LAST.
+
+<div class="node">
+<p><hr>
+<a name="Types-of-Variables"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="#Variable-Arrays">Variable Arrays</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#Special-Short-Args">Special Short Args</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#Details">Details</a>
+
+</div>
+
+<h3 class="section">3.3 The argv_t Structure and It's Usage</h3>
+
+<p>Ar_type holds the type of the argument whether an optional argument or
+mandatory.  Below are the available values for this field.
+
+     <dl>
+<dt><code>ARGV_BOOL</code><dd>character type, sets the variable to ARGV_TRUE if used
+
+     <br><dt><code>ARGV_BOOL_NEG</code><dd>like ARGV_BOOL but sets the variable to ARGV_FALSE if used
+
+     <br><dt><code>ARGV_BOOL_ARG</code><dd>like ARGV_BOOL but takes a yes/no argument
+
+     <br><dt><code>ARGV_CHAR</code><dd>a single character
+
+     <br><dt><code>ARGV_CHAR_P</code><dd>a string of characters (character pointer)
+
+     <br><dt><code>ARGV_FLOAT</code><dd>a floating pointer number
+
+     <br><dt><code>ARGV_SHORT</code><dd>a short integer number
+
+     <br><dt><code>ARGV_INT</code><dd>an integer number
+
+     <br><dt><code>ARGV_U_INT</code><dd>an unsigned integer number
+
+     <br><dt><code>ARGV_LONG</code><dd>a long integer number
+
+     <br><dt><code>ARGV_U_LONG</code><dd>an unsigned long integer number
+
+     <br><dt><code>ARGV_BIN</code><dd>a binary base-2 number (0s and 1s)
+
+     <br><dt><code>ARGV_OCT</code><dd>an octal base-8 number (0 to 7)
+
+     <br><dt><code>ARGV_HEX</code><dd>a hexadecimal base-16 number (0 to 9 and A to F)
+
+     <br><dt><code>ARGV_INCR</code><dd>a integer type which is incremented each time it is specified
+
+     <br><dt><code>ARGV_SIZE</code><dd>a long integer size number which understands b for bytes, k for
+kilobytes, m for megabytes, and g for gigabytes
+
+     <br><dt><code>ARGV_U_SIZE</code><dd>an unsigned long integer version of ARGV_SIZE
+
+     <br><dt><code>ARGV_BOOL_INT</code><dd>like ARGV_BOOL except the variable is an integer and not a character
+
+     <br><dt><code>ARGV_BOOL_INT_NEG</code><dd>like ARGV_BOOL_NEG except the variable is an integer and not a character
+
+     <br><dt><code>ARGV_BOOL_INT_ARG</code><dd>like ARGV_BOOL_ARG except the variable is an integer and not a character
+
+   </dl>
+
+   <p>For printing out of the type of the argument on the command line, use
+the `<samp><span class="samp">--argv-display</span></samp>' option which will display the argument, its
+type and value.  It will display the variables' default values if no
+arguments specified before it on the command line otherwise it will show
+the values the variables are set to after processing the arguments.
+
+   <p>Basically the argument processing routines, examine the type of the
+variable, absorb another argument (if necessary), and then translate the
+string argument (if necessary) and write the data into the address
+stored in the ar_variable field.
+
+   <p>ARGV_BOOL, ARGV_BOOL_NEG, ARGV_INCR, ARGV_BOOL_INT, and
+ARGV_BOOL_INT_NEG are special in the above list in that they do not
+require another argument.  With `<samp><span class="samp">ls -l</span></samp>', for example, the `<samp><span class="samp">-l</span></samp>'
+flag lives on its own.  With `<samp><span class="samp">install -m 444 ...</span></samp>', on the other
+hand, `<samp><span class="samp">444</span></samp>' is an octal number argument associated with `<samp><span class="samp">-m</span></samp>'
+and will be translated and assigned to the `<samp><span class="samp">-m</span></samp>' mode variable.
+
+<div class="node">
+<p><hr>
+<a name="Variable-Arrays"></a>
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#Types-of-Variables">Types of Variables</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#Details">Details</a>
+
+</div>
+
+<h3 class="section">3.4 Using Arguments Which &ldquo;Absorb&rdquo; Arrays.</h3>
+
+<p>Needs to be written.  Sorry.
+
+<div class="node">
+<p><hr>
+<a name="General-Usage"></a>
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#Details">Details</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
+
+</div>
+
+<h2 class="chapter">4 Invoking Programs Which Use the Library</h2>
+
+<ul class="menu">
+<li><a accesskey="1" href="#Usage-Messages">Usage Messages</a>:                 How to get usage messages from argv programs. 
+<li><a accesskey="2" href="#Specifying-Arguments">Specifying Arguments</a>:           How to specify arguments to argv programs. 
+<li><a accesskey="3" href="#Long-Versus-Short">Long Versus Short</a>:              Long versus short arguments. 
+<li><a accesskey="4" href="#Global-Environment-Variable">Global Environment Variable</a>:    Settings for all argv programs. 
+<li><a accesskey="5" href="#Program-Environment-Variable">Program Environment Variable</a>:   Arguments for a specific argv program. 
+</ul>
+
+<div class="node">
+<p><hr>
+<a name="Usage-Messages"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="#Specifying-Arguments">Specifying Arguments</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#General-Usage">General Usage</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#General-Usage">General Usage</a>
+
+</div>
+
+<h3 class="section">4.1 How to get usage messages from argv programs</h3>
+
+<p>If a program `<samp><span class="samp">install</span></samp>' has the library compiled in you should be
+able to do a `<samp><span class="samp">install --usage-long</span></samp>' to get the long-format usage
+message.
+
+<pre class="example">     Usage: install
+       [-c]              or --copy-files       = copy file(s), don't move %t
+       [-g group]        or --group-id         = group id name (default bin) %s
+       [-m octal-mode]   or --mode-value       = permissions mode value %o
+       [-o owner]        or --owner-id         = owner id name (default bin) %s
+       [-s]              or --strip            = strip destination binary %t
+       [file(s)] directory/destination         = files to install or mkdir arg
+</pre>
+   <p>In the above example, the program install's usage message is detailed. 
+The `<samp><span class="samp">[-c]</span></samp>' line details the copy-files flag.  You can either enable
+it with a `<samp><span class="samp">-c</span></samp>' or `<samp><span class="samp">--copy-files</span></samp>'.  The description of the flag
+follows with lastly, a `<samp><span class="samp">%t</span></samp>' showing that it is a <dfn>true/false</dfn>
+flag.
+
+   <p>The `<samp><span class="samp">[-g]</span></samp>' line shows the group-id flag.  It is different from the
+`<samp><span class="samp">-c</span></samp>' flag since, if used, it takes a group string argument (notice
+the `<samp><span class="samp">%s</span></samp>' at the end of the line indicating it takes a string
+argument).
+
+   <p>`<samp><span class="samp">install --usage-short</span></samp>' or just `<samp><span class="samp">--usage</span></samp>' will get you a
+condensed usage message:
+
+<pre class="example">     Usage: install [-cs] [-g group] [-m octal-mode] [-o owner] [file(s)]
+            directory/destination
+</pre>
+   <div class="node">
+<p><hr>
+<a name="Specifying-Arguments"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="#Long-Versus-Short">Long Versus Short</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#Usage-Messages">Usage Messages</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#General-Usage">General Usage</a>
+
+</div>
+
+<h3 class="section">4.2 How to Specify Arguments to Argv Programs</h3>
+
+<p>Specifying arguments to a program which uses the library is quite
+straight-forward and standardized.  Once you have learned how to do it
+once, you can use any program with it.
+
+   <p>There are five basic types of arguments as defined by the library:
+
+     <dl>
+<dt><dfn>true/false flags</dfn><dd>Do not have an associated value and the program will get a True if one
+is specified else False.
+
+     <p>The `<samp><span class="samp">-c</span></samp>' in `<samp><span class="samp">install -c</span></samp>'.
+
+     <br><dt><dfn>variable flags</dfn><dd>Have an associate value which will be supplied to the program.
+
+     <p>The `<samp><span class="samp">-m</span></samp>' in `<samp><span class="samp">install -m 0644</span></samp>' will get the value `<samp><span class="samp">0644</span></samp>'.
+
+     <br><dt><dfn>values</dfn><dd>Arguments without a `<samp><span class="samp">-</span></samp>' and are associated values for the variable
+flags.
+
+     <br><dt><dfn>mandatory</dfn><dd>Arguments without a `<samp><span class="samp">-</span></samp>' but are <em>not</em> associated to variable
+flags.  These can be supplied to the program if allowed.  They are
+mandatory in that they must be supplied.  If the program asks for 3
+arguments, 3 must be supplied.  <em>NOTE</em> that order is important with
+these.
+
+     <p>The `<samp><span class="samp">from</span></samp>' and `<samp><span class="samp">to</span></samp>' arguments in `<samp><span class="samp">install from to</span></samp>'.
+
+     <br><dt><dfn>maybe</dfn><dd>These are the same as the mandatory arguments except they are optional
+arguments and can but do not have to be supplied.
+
+     <p>The `<samp><span class="samp">file</span></samp>' argument in `<samp><span class="samp">ls file</span></samp>' since `<samp><span class="samp">ls</span></samp>' does not
+require a file to be listed to work.
+
+   </dl>
+
+   <p>The values for the variable flags are assigned in a straight
+First-In-First-Out queue.  In `<samp><span class="samp">install -m -g 0644 bin</span></samp>', the value
+`<samp><span class="samp">0644</span></samp>' is assigned to the `<samp><span class="samp">-m</span></samp>' flag and the value `<samp><span class="samp">bin</span></samp>'
+is assigned to `<samp><span class="samp">-g</span></samp>'.
+
+   <p>Additional values that cannot be matched to variable flags will become
+mandatory or maybe arguments if the program is configured to accept
+them.
+
+<pre class="example">             install from -c -m -g 0644 -o wheel -s jim to
+</pre>
+   <p>In the previous convoluted example, `<samp><span class="samp">from</span></samp>' and `<samp><span class="samp">to</span></samp>' are
+mandatory arguments, `<samp><span class="samp">-c</span></samp>' and `<samp><span class="samp">-s</span></samp>' are true/false flags,
+`<samp><span class="samp">-m</span></samp>' gets assigned `<samp><span class="samp">0644</span></samp>', `<samp><span class="samp">-g</span></samp>' gets `<samp><span class="samp">wheel</span></samp>', and
+`<samp><span class="samp">-o</span></samp>' gets `<samp><span class="samp">jim</span></samp>'.  It would be much easier to write it as:
+
+<pre class="example">             install -cs -m 0644 -g wheel -o jim to from
+</pre>
+   <div class="node">
+<p><hr>
+<a name="Long-Versus-Short"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="#Global-Environment-Variable">Global Environment Variable</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#Specifying-Arguments">Specifying Arguments</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#General-Usage">General Usage</a>
+
+</div>
+
+<h3 class="section">4.3 Long Versus Short Arguments</h3>
+
+<p>Needs to be written.  Sorry.
+
+<div class="node">
+<p><hr>
+<a name="Global-Environment-Variable"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="#Program-Environment-Variable">Program Environment Variable</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#Long-Versus-Short">Long Versus Short</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#General-Usage">General Usage</a>
+
+</div>
+
+<h3 class="section">4.4 Global Settings For All Argv Programs</h3>
+
+<p><a name="index-environment-variable-25"></a><a name="index-GLOBAL_005fARGV-26"></a>
+An <dfn>environment variable</dfn> is a variable that is part of the user's
+working environment and is shared by all the programs.  The
+`<samp><span class="samp">GLOBAL_ARGV</span></samp>' variable is used by the argv library to customize its
+behavior at runtime.  It can be set by hand and should probably be
+entered into your shell's runtime configuration or <dfn>RC</dfn> file.
+
+   <p><a name="index-C-shell-usage-27"></a><a name="index-csh-usage-28"></a><a name="index-tcsh-usage-29"></a>To set the variable, C shell (csh or tcsh) users need to invoke:
+
+<pre class="example">     setenv GLOBAL_ARGV value
+</pre>
+   <p><a name="index-Bourne-shell-usage-30"></a><a name="index-sh-usage-31"></a><a name="index-bash-usage-32"></a><a name="index-ksh-usage-33"></a><a name="index-zsh-usage-34"></a>Bourne shell (sh, bash, ksh, or zsh) users should use:
+
+<pre class="example">     GLOBAL_ARGV=value
+     export GLOBAL_ARGV
+</pre>
+   <p>The value in the above example is a comma separated list of tokens each
+having a corresponding value.  The tokens and their values are described
+below:
+
+     <ul>
+<li>close &ndash; close argument acceptance
+
+     <p>Enables the handling of arguments such as `<samp><span class="samp">-m=444</span></samp>' where `<samp><span class="samp">-m</span></samp>'
+is a flag and `<samp><span class="samp">444</span></samp>' is its value.
+
+     <p>Values: disable, enable.
+
+          <ul>
+<li>disable &ndash; treat `<samp><span class="samp">=</span></samp>' like a normal argument
+<li>enable (default) &ndash; enable the `<samp><span class="samp">-x=10</span></samp>' format
+</ul>
+
+     <li>env &ndash; environment variable handling
+
+     <p>Enables the processing of the `<samp><span class="samp">ARGV_*</span></samp>' variables.  If you have a
+set of options that you always use for `<samp><span class="samp">ls</span></samp>' for instance, you cat
+set the `<samp><span class="samp">ARGV_LS</span></samp>' environmental variable to hold these options. 
+For instance: `<samp><span class="samp">setenv ARGV_LS "-sCF"</span></samp>'.
+
+     <p>Values: none, before, after.
+
+          <ul>
+<li>none &ndash; No processed at all
+<li>before (default) &ndash; options from env variable are processed
+Before command line
+<li>after &ndash; env options processed After command line
+</ul>
+
+     <li>error &ndash; handling of usage errors
+
+     <p>Whenever you do not use a command correctly, this token determines how
+the library reports errors to you.
+
+     <p>Values: none, see, short, shortrem, long, all.
+
+          <ul>
+<li>none &ndash; on errors print nothing but error message
+<li>see (default) &ndash; on errors print see &ndash;usage for more info. 
+<li>short &ndash; on errors print the short-format usage messages
+<li>shortrem &ndash; on errors print short-format + how to get long
+<li>long &ndash; on errors print the long-format usage messages
+<li>all &ndash; on errors print the long-format usage messages + help, etc. 
+</ul>
+
+     <li>multi &ndash; the handling of arguments specified more than once
+
+     <p>If you use am argument twice on the command line, this token determines
+if the library should say it is an error.
+
+     <p>Values: accept, reject.
+
+          <ul>
+<li>accept (default) &ndash; it's NOT an error if specified more than once
+<li>reject &ndash; it's an error if specified more than once
+</ul>
+
+     <li>usage &ndash; usage messages for &ndash;usage
+
+     <p>Determines what messages the library prints when you use the
+`<samp><span class="samp">--usage</span></samp>' option.
+
+     <p>Values: short, shortrem, long, all.
+
+          <ul>
+<li>short (default) &ndash; default is the short-format messages
+<li>shortrem &ndash; default is the short-format messages + how to get long
+<li>long &ndash; default is the long-format messages
+<li>all &ndash; default is the long-format messages + help, usage, version
+</ul>
+
+   </ul>
+
+   <p>Examples:
+
+<pre class="example">             # accept -x=10, no env variables, long messages on errors,
+             # accept multiple uses, and print all messages on --usage.
+     	setenv GLOBAL_ARGV close=accept,env=none,error=long,multi=accept,usage=all
+     
+             # process env variable options before command line,
+             # and reject multiple argument uses
+     	setenv GLOBAL_ARGV env=before,error=long,multi=reject
+</pre>
+   <div class="node">
+<p><hr>
+<a name="Program-Environment-Variable"></a>
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#Global-Environment-Variable">Global Environment Variable</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#General-Usage">General Usage</a>
+
+</div>
+
+<h3 class="section">4.5 Arguments For a Specific Argv Program</h3>
+
+<p>Needs to be written.  Sorry.
+
+<div class="node">
+<p><hr>
+<a name="Index-of-Concepts"></a>
+Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
+
+</div>
+
+<h2 class="unnumbered">Concept Index</h2>
+
+<ul class="index-cp" compact>
+<li><a href="#index-ANSI_002dC-compiler-19">ANSI-C compiler</a>: <a href="#Installation">Installation</a></li>
+<li><a href="#index-author-2">author</a>: <a href="#Top">Top</a></li>
+<li><a href="#index-bash-usage-32">bash usage</a>: <a href="#Global-Environment-Variable">Global Environment Variable</a></li>
+<li><a href="#index-Bourne-shell-usage-30">Bourne shell usage</a>: <a href="#Global-Environment-Variable">Global Environment Variable</a></li>
+<li><a href="#index-building-the-library-14">building the library</a>: <a href="#Installation">Installation</a></li>
+<li><a href="#index-C-shell-usage-27">C shell usage</a>: <a href="#Global-Environment-Variable">Global Environment Variable</a></li>
+<li><a href="#index-command-line-arguments-7">command line arguments</a>: <a href="#Concepts">Concepts</a></li>
+<li><a href="#index-compiling-the-library-13">compiling the library</a>: <a href="#Installation">Installation</a></li>
+<li><a href="#index-conf_002eh-file-18">conf.h file</a>: <a href="#Installation">Installation</a></li>
+<li><a href="#index-configure-script-17">configure script</a>: <a href="#Installation">Installation</a></li>
+<li><a href="#index-configuring-the-library-15">configuring the library</a>: <a href="#Installation">Installation</a></li>
+<li><a href="#index-copying-3">copying</a>: <a href="#Copying">Copying</a></li>
+<li><a href="#index-csh-usage-28">csh usage</a>: <a href="#Global-Environment-Variable">Global Environment Variable</a></li>
+<li><a href="#index-downloading-the-library-10">downloading the library</a>: <a href="#How-To-Get">How To Get</a></li>
+<li><a href="#index-environment-variable-25">environment variable</a>: <a href="#Global-Environment-Variable">Global Environment Variable</a></li>
+<li><a href="#index-getopt-9">getopt</a>: <a href="#Concepts">Concepts</a></li>
+<li><a href="#index-getting-started-21">getting started</a>: <a href="#Getting-Started">Getting Started</a></li>
+<li><a href="#index-getting-the-source-11">getting the source</a>: <a href="#How-To-Get">How To Get</a></li>
+<li><a href="#index-GLOBAL_005fARGV-26">GLOBAL_ARGV</a>: <a href="#Global-Environment-Variable">Global Environment Variable</a></li>
+<li><a href="#index-how-to-begin-23">how to begin</a>: <a href="#Getting-Started">Getting Started</a></li>
+<li><a href="#index-installing-the-library-12">installing the library</a>: <a href="#Installation">Installation</a></li>
+<li><a href="#index-introduction-1">introduction</a>: <a href="#Top">Top</a></li>
+<li><a href="#index-jump-start-22">jump start</a>: <a href="#Getting-Started">Getting Started</a></li>
+<li><a href="#index-ksh-usage-33">ksh usage</a>: <a href="#Global-Environment-Variable">Global Environment Variable</a></li>
+<li><a href="#index-library-permissions-5">library permissions</a>: <a href="#Copying">Copying</a></li>
+<li><a href="#index-license-4">license</a>: <a href="#Copying">Copying</a></li>
+<li><a href="#index-making-the-library-16">making the library</a>: <a href="#Installation">Installation</a></li>
+<li><a href="#index-permissions-of-the-library-6">permissions of the library</a>: <a href="#Copying">Copying</a></li>
+<li><a href="#index-quick-start-20">quick start</a>: <a href="#Getting-Started">Getting Started</a></li>
+<li><a href="#index-sh-usage-31">sh usage</a>: <a href="#Global-Environment-Variable">Global Environment Variable</a></li>
+<li><a href="#index-tcsh-usage-29">tcsh usage</a>: <a href="#Global-Environment-Variable">Global Environment Variable</a></li>
+<li><a href="#index-unix-command-line-8">unix command line</a>: <a href="#Concepts">Concepts</a></li>
+<li><a href="#index-where-to-begin-24">where to begin</a>: <a href="#Getting-Started">Getting Started</a></li>
+<li><a href="#index-zsh-usage-34">zsh usage</a>: <a href="#Global-Environment-Variable">Global Environment Variable</a></li>
+</ul>
+<div class="contents">
+<h2>Table of Contents</h2>
+<ul>
+<li><a name="toc_Top" href="#Top">Argv Library</a>
+<li><a name="toc_Copying" href="#Copying">1 Library Copying Conditions</a>
+<li><a name="toc_Overview" href="#Overview">2 How to Use the Library</a>
+<ul>
+<li><a href="#Concepts">2.1 The General Concepts Behind the Library</a>
+<li><a href="#How-To-Get">2.2 How to get the library.</a>
+<li><a href="#Installation">2.3 Installing the Library</a>
+<li><a href="#Getting-Started">2.4 Getting Started with the Library</a>
+</li></ul>
+<li><a name="toc_Details" href="#Details">3 The Library's Operations</a>
+<ul>
+<li><a href="#Argv_005ft-Structure">3.1 The argv_t Structure and It's Usage</a>
+<li><a href="#Special-Short-Args">3.2 The Special ar_short_arg Values</a>
+<li><a href="#Types-of-Variables">3.3 The argv_t Structure and It's Usage</a>
+<li><a href="#Variable-Arrays">3.4 Using Arguments Which &ldquo;Absorb&rdquo; Arrays.</a>
+</li></ul>
+<li><a name="toc_General-Usage" href="#General-Usage">4 Invoking Programs Which Use the Library</a>
+<ul>
+<li><a href="#Usage-Messages">4.1 How to get usage messages from argv programs</a>
+<li><a href="#Specifying-Arguments">4.2 How to Specify Arguments to Argv Programs</a>
+<li><a href="#Long-Versus-Short">4.3 Long Versus Short Arguments</a>
+<li><a href="#Global-Environment-Variable">4.4 Global Settings For All Argv Programs</a>
+<li><a href="#Program-Environment-Variable">4.5 Arguments For a Specific Argv Program</a>
+</li></ul>
+<li><a name="toc_Index-of-Concepts" href="#Index-of-Concepts">Concept Index</a>
+</li></ul>
+</div>
+
+</body></html>
+

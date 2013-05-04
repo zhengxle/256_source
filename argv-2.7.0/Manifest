@@ -1,0 +1,66 @@
+-------------------------------------------------------------------------------
+$Id: Manifest,v 1.15 2006/09/22 22:45:33 gray Exp $
+-------------------------------------------------------------------------------
+Description of the files in the argv package.
+
+Changelog.1		Log entries detailing major module changes.
+
+INSTALL			Installation guide.
+
+Makefile.in		Used by configure to create the Makefile.
+
+Manifest		This file.
+
+NEWS			File with a condensed view of the module's
+			ChangeLog entries per version.
+
+NOTES			General Notes of the argv library.
+
+README			Quick startup notes.
+
+TODO			Things to do list.  It gets longer and longer.
+
+argv.c			The majority of the argv functions.
+
+argv.h.[13]		Used to create argv.h.
+
+argv.h.2		Created by configure and used to create argv.h.
+
+argv.html		HTML manual file for the argv routines.
+
+argv.texi		Texinfo user manual for generating Info or dvi
+			formats.
+
+argv_loc.h		Local defines for the argv routines.
+
+argv_shell.c		Shell tool for processing arguments in argv
+			formats.
+
+argv_t.c		Test program for the library.
+
+argv_web.c		Processes arguments passed into cgi-bin programs.
+
+argv_web.h.[13]		Used to create argv_web.h.
+
+compat.[ch]		System compatibility routines if missing
+			functionality.
+
+conf.h			File of library defines produced by configure.
+
+conf.h.in		Used by configure to gerate the config define file.
+
+config.help		Help file about the GNU configure scripts.
+
+configure		Configure script.
+
+configure.in		Used by autoconf to create the configure
+			script.
+
+install-sh		Shell script for systems without a sane install.
+
+mkinstalldirs		Script that makes the directories to install into.
+
+texinfo.tex		File included to allow TeX output from the
+			argv.texi file.
+
+-------------------------------------------------------------------------------

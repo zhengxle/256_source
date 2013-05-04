@@ -1,0 +1,39 @@
+
+	   Concurrent Maintenance of Skip Lists
+
+	William Pugh, Department of Computer Science 
+	and Institute for Advanced Computer Studies,
+	 University of Maryland, College Park
+
+			Overview
+Many papers have been written on implementing concurrent search 
+structures using search trees, both balanced and unbalanced. In 
+concurrent search structures, locks are used to prevent concurrent 
+threads from interfering with each other. A concurrency scheme must 
+assure the integrity of the data structure, avoid deadlock and have a 
+serializable schedule. Within those restrictions, we would like the 
+algorithms to be as simple, efficient and concurrent as possible. 
+     Performing concurrent deletion or rebalancing in trees is very 
+complicated; most papers on concurrent tree maintenance have omitted 
+describing techniques for one or the other of these problems, mainly due 
+to the complexity of these algorithms.
+     In this paper we describe simple concurrent algorithms for access 
+and update of skip lists. Skip lists are a new probabilistic data 
+structure that can be used as a replacement for balanced trees. The 
+concurrent algorithms for updating skip lists are much simpler than 
+equivalent concurrent algorithms for updating balanced trees and allow 
+more concurrency. The algorithms use only write locks; no exclusive 
+locks or read locks are required. 
+     The rest of this paper is organized as follows. In Section 2 we 
+describe a simple concurrent updating scheme for sorted linked lists. In 
+Section 3 we briefly review skip lists. In Section 4, we show how the 
+concurrent updating scheme for linked lists can be adapted to skip lists 
+and discuss the efficiency and allowable concurrency of our scheme. In 
+Section 5, we discuss related work.
+
+This paper will appear in Distributed Computer. It is also available as 
+Tech Report TR-CS-2222.1, Dept. of Computer Science, University of 
+Maryland, College Park. A Postscript format version of this paper is 
+available for anonymous ftp from mimsy.cs.umd.edu. 
+
+The author can be contacted at pugh@cs.umd.edu.

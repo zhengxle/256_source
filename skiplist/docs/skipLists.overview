@@ -1,0 +1,43 @@
+	Skip Lists: A Probabilistic Alternative to Balanced Trees
+
+		         William Pugh, 
+		Department of Computer Science 
+ 	   and Institute for Advanced Computer Studies,
+	      University of Maryland, College Park
+
+			    Overview
+
+Binary trees can be used for representing abstract data types such as 
+dictionaries and ordered lists. They work well when the elements are 
+inserted in a random order. Some sequences of operations, such as 
+inserting the elements in order, produce degenerate data structures that 
+give very poor performance. If it were possible to randomly permute the 
+list of items to be inserted, trees would work well with high 
+probability for any input sequence. In most cases queries must be 
+answered on-line, so permuting randomly the input is impractical. 
+Balanced tree algorithms rearrange the tree as operations are performed 
+to maintain certain balance conditions and assure good performance. 
+    Skip lists are a probabilistic alternative to balanced trees. Skip 
+lists are balanced by consulting a random number generator. Although 
+skip lists have bad worst-case performance, no input sequence 
+consistently produces the worst-case performance (much like quicksort 
+when the pivot element is chosen randomly). It is very unlikely a skip 
+list data structure will be significantly unbalanced (e.g., for a 
+dictionary of more than 250 elements, the chance that a search will take 
+more than 3 times the expected time is less than one in a million). Skip 
+lists have balance properties similar to that of search trees built by 
+random insertions, yet do not require insertions to be random.
+    Balancing a data structure probabilistically is easier than 
+explicitly maintaining the balance. For many applications, skip lists 
+are a more natural representation than trees, also leading to simpler 
+algorithms. The simplicity of skip list algorithms makes them easier to 
+implement and provides significant constant factor speed improvements 
+over balanced tree and self-adjusting tree algorithms. Skip lists are 
+also very space efficient. They can easily be configured to require an 
+average of 1 1/3 pointers per element (or even less) and do not require 
+balance or priority information to be stored with each node. 
+
+This article appeared in the June 1990 issue of CACM. A Postscript 
+format version is available for anonymous ftp from mimsy.cs.umd.edu.
+
+The author can be contacted at pugh@cs.umd.edu.

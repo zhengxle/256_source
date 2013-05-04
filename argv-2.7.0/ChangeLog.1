@@ -1,0 +1,450 @@
+2010-02-15  Gray Watson  <>
+
+	* Releasing verion 2.7.0.
+
+	* Fixed memory problems with the environ vars.  Thanks much to
+	Robert Edmonds for the bug report and patches.
+
+2007-01-08  Gray Watson  <>
+
+	* Releasing verion 2.6.1 in 256.com/sources. 
+
+	* Added C++ stuff for includes.
+
+2006-09-22  Gray Watson  <>
+
+	* Releasing verion 2.6.0 in 256.com/sources. 
+
+	* Made a fix to the Makefiles to remove the stupid .info stuff.
+	Thanks Bernard.
+
+2002-06-20  Gray Watson  <>
+
+	* Fixed a bad bug in the argument processing section.  This has
+	been there for a while.
+
+2002-06-07  Gray Watson  <>
+
+	* Finished argv_error_code support.
+
+	* Added snprintf config support.  Ugh.  This should have been in
+	there earlier.
+
+2001-03-25  Gray Watson  <>
+
+	* Fixed some problems with the new gcc.
+
+Wed Aug 23 13:44:04 2000  Gray Watson  <>
+
+	* Fixed some comments and function headers in argv.h[.3].
+
+Tue Mar  7 17:06:56 2000  Gray Watson  <>
+
+	* Releasing 2.5.0 in 256.com/sources. 
+
+Thu Dec 24 10:48:00 1998  Gray Watson  <>
+
+	* Reworked the environmental variable handling.  Added a number of
+ 	externally settable variables.
+
+Tue Nov 10 09:13:20 1998  Gray Watson  <>
+
+	* Added ARGV_BOOL_INT, ARGV_BOOL_INT_NEG, and ARGV_BOOL_INT_ARG
+        variable types for integer boolean vars.
+
+Mon Oct 19 11:25:56 1998  Gray Watson  <>
+
+	* Added argv_entry_was_used function.
+
+	* Added argv_type_info function.
+
+	* Improved array handling in argv_value_string function.
+
+Tue Oct 13 10:25:45 1998  Gray Watson  <>
+
+	* Releasing version 2.4.0.
+
+	* Made a number of general code cleaning, format updating
+	changes, and other improvements.
+
+	* Improved the reentrance of the library.  Still has some global
+	constants.
+
+	* Migrated the web support functions out to argv_web.[ch].
+
+	* Added argv_value_string function to convert a variable into its
+	string representation.
+
+	* Made a number of improvements to the argv display code and
+	vectorization routines.  Moved from strtok to strsep.
+
+Sun Oct  4 21:54:54 1998  Gray Watson  <>
+
+	* Removed stupid QUEUE macros.  Bleah.  Did I ever use these in
+	other code sections?
+
+	* Added support for negative numbers.  Thanks Nick.
+
+Mon Oct 20 12:54:16 1997  Gray Watson  <>
+
+	* Releasing version 2.3.1.
+
+	* Added ARGV_FLAG_MAND which can be used to set any option as
+	mandatory.
+
+	* Renamed ARGV_ARRAY to be ARGV_FLAG_ARRAY.
+
+	* Fixed --argv-file to handle non close arguments.
+
+	* Added a number of {}.
+
+Mon Jul  7 02:45:50 1997  Gray Watson  <>
+
+	* We now allow mandatory boolean args.
+
+	* Added ARGV_SIZE and ARGV_U_SIZE and renumbered the types.
+
+Thu May  1 10:04:44 1997  Gray Watson  <>
+
+	* Updated the docs a tad.
+
+	* Renamed ARGV_CHARP to ARGV_CHAR_P.
+
+Mon Mar 24 17:47:26 1997  Gray Watson  <>
+
+	* Releasing version 2.3.0.
+
+	* Removed LOCAL, EXPORT, NULLC and other reminders of my old
+	coding style.
+
+	* Renamed aa_entryn aa_entry_n.
+
+Fri Jan 31 00:30:56 1997  Gray Watson  <>
+
+	* Fixed so ARGV_MAND + ARGV_ARRAY needs at least 1 arg.
+	ARGV_MAYBE + ARRAY does not.
+
+	* Added new ARGV_SIZE type to handle 10k and 15m.
+
+	* Added other enable/disable forms: yes/no, on/off, 1/0.
+
+Mon Jan 27 12:51:24 1997  Gray Watson  <>
+
+	* Added lasttog env setting to have -- toggle last-arg on/off.
+
+	* Fixed close= processing.  It was munching normal x=5 args
+	instead of just -x=5 args.
+
+Thu Dec 12 13:44:34 1996  Gray Watson  <>
+
+	* Releasing version 2.2.0.
+
+	* Added better error tracking inside of argv functions.
+
+	* Added --argv-file functionality.
+
+	* Went to _p, _c, _n variables.
+
+Wed Feb 21 00:32:11 1996  Gray Watson  <>
+
+	* Cleaned up problems with /x=/.  Need a null-arg here.
+
+Mon Feb 19 01:40:24 1996  Gray Watson  <>
+
+	* Found a number of printf's that should be argv_error_stream
+	dumps.
+
+	* Allowed multiple seperators in a row or at start/end.
+
+	* Made web-process-string handle different seperator strings which
+	means you can handle QUERY_STRING and PATH_INFO web formats.
+
+Thu Dec 28 20:46:08 1995  Gray Watson  <>
+
+	* Improved usage message handing.
+
+Thu Dec  7 20:25:13 1995  Gray Watson  <>
+
+	* Fixed --usage-long output for NULLC short-arguments.
+
+	* Added argv_interactive flag which will exit on errors.
+	Otherwise the library just returns an error code.
+
+	* Added argv_error_stream which can be set to the FILE * were
+	errors should go (or NULL to be disabled).
+
+Tue Nov 28 00:58:04 1995  Gray Watson  <>
+
+	* Fixed problem with web-process build string.  Made more dynamic.
+
+Mon Nov 20 22:13:33 1995  Gray Watson  <>
+
+	* Removed some unresolved references: strcasecmp, strdup.
+
+	* Fixed some porting problems to Unixware.  Unsigned chars.
+
+Mon Nov  6 09:11:38 1995  Gray Watson  <>
+
+	* Fixed a bug that crashed htpd with argv_error_stream == NULL.
+
+Thu Nov  2 11:02:06 1995  Gray Watson  <>
+
+	* Improved the non-interactive workings of thee library.
+
+Wed Oct 18 20:04:58 1995  Gray Watson  <>
+
+	* Pulled web_process_string out of web_process.
+
+Sat Sep 16 17:01:26 1995  Gray Watson  <>
+
+	* Releasing version 2.0.2.
+
+	* Had to make CHARP's types be strdup'd and then freed.
+
+Tue Sep  5 18:35:03 1995  Gray Watson  <>
+
+	* Added BOOL_ARG for a variable which expects a yes or no.
+
+	* Added U_INT and U_LONG arg variable types.
+
+	* Re-added --usage-all for printing all the available options.
+
+	* Added web processing of environmental variables.
+
+Mon Jul  3 14:06:21 1995  Gray Watson  <>
+
+	* Releasing version 2.0.1.
+
+	* Fixed bug with XOR processing.
+
+	* Added some more to the manual.  Still lacking.
+
+	* Added ARGV_INCR variable type which increments variable.
+
+Wed Jun 28 13:45:22 1995  Gray Watson  <>
+
+	* Improved some of the configuration for strings, etc.
+
+Fri Mar 31 18:00:45 1995  Gray Watson  ()
+
+	* Added displaying of type and value with --argv-display.
+
+	* Added the start of http processing.
+
+Sat Feb 18 17:44:08 1995  Gray Watson  ()
+
+	* Releasing version 2.0.0.
+
+	* Applied the finishing touches to the shell program?
+
+	* De-localizing the code.
+
+Mon Nov 21 17:02:46 1994  Gray Watson  ()
+
+	* Added new install, quick-start sections to argv.texi.
+
+	* Now generating the document files from the info file.
+
+	* Renamed dump argument to --argv-display.
+
+Fri Nov 18 12:20:23 1994  Gray Watson  ()
+
+	* Added new --argv-values routine to dump argument values.
+
+	* argv_shell initial version working for shell scripts.
+
+	* Added a define for the void/char * types.
+
+Mon Nov  7 12:40:41 1994  Gray Watson  ()
+
+	* Added better default messages and added dmalloc distribution
+	stuff.
+
+Sat Jul 30 00:25:03 1994  Gray Watson  ()
+
+	* Added INSTALL, config.help and upgraded some notes files.
+
+Thu Apr 28 16:16:12 1994  Gray Watson  ()
+
+	* Added argv_was_used() call using the in structure used flag.
+
+	* Removed used,mand,maybe marker arrays in place of flags in the
+	user's argv_t structure type field.
+
+Wed Mar 30 15:20:12 1994  Gray Watson  ()
+
+	* Removed conf.h from argv.c in an attempt to make it more
+	exportable.
+
+Tue Mar 22 01:14:26 1994  Gray Watson  ()
+
+	* Fixed a number of problems with the compat funcs.
+
+	* Added better mechanisms for const definition.
+
+Fri Mar 18 00:09:48 1994  Gray Watson  ()
+
+	* Cleaned up usage messages, column width calcs, env variable.
+
+Thu Mar 17 02:09:07 1994  Gray Watson  ()
+
+	* Finally added the env variable processing for GLOBAL_ARGV.
+
+Thu Mar 10 12:42:45 1994  Gray Watson  ()
+
+	* Renamed a bunch of internal routines.
+
+Tue Mar  1 10:42:44 1994  Gray Watson  ()
+
+	* Made version string not be a variable.
+
+Sun Feb 27 21:05:39 1994  Gray Watson  ()
+
+	* Released version 1.2.2.
+
+	* Inlined version.h into argv.h
+
+	* Added new configure cc-ansi macro.
+
+Sun Feb 20 00:01:51 1994  Gray Watson  ()
+
+	* Released version 1.2.1.
+
+	* Cleaned up a number of compat/configure routines.
+
+	* added de-ansify perl script for non-ansi folks.
+
+	* Updated the manual a bit.
+
+	* Fixed some problems with STDC arguments.
+
+Thu Feb 17 22:04:46 1994  Gray Watson  ()
+
+	* Merged in most external files into argv.c, argv.h, argv_loc.h
+
+Sat Nov 20 16:56:08 1993  Gray Watson  ()
+
+	* Releasing version 1.2.0 to pick up a missed fix.
+
+Thu Oct  7 01:24:31 1993  Gray Watson  ()
+
+	* Releasing version 1.1.9
+
+	* Added -std1 configure scripts.
+
+	* Fixed bug with maybe args.
+
+	* Added strncmp to compat.
+
+Wed Sep 29 18:22:53 1993  Gray Watson  ()
+
+	* removed argv_zero and added argv_argv, argv_argc and
+	argv_copy_args() in its place.
+
+Tue Sep 21 22:54:27 1993  Gray Watson  ()
+
+	* Releasing version 1.1.8.
+
+	* Added compat functions to fix missing strdup and other routines.
+
+Mon Aug 30 17:27:46 1993  Gray Watson  ()
+
+	* Cleaned up queue code to me non-ansi dependant.
+
+Thu Aug 26 13:45:54 1993  Gray Watson  ()
+
+	* Releasing version 1.1.7.
+
+	* Made changes to add const.h hack like malloc to preprocess
+	argv.h.  Yeach!!
+
+	* Added the ability to take NULL arg arrays.  Also finxed some
+	comments and re-ordered some functions.
+
+Tue Aug 17 14:54:00 1993  Gray Watson  ()
+
+	* Releasing version 1.1.6 (added the extra branch).
+
+	* Worked on manual README and other notes files.  Took out
+	argv_usage_on_error.
+
+Wed Aug 11 12:45:42 1993  Gray Watson  ()
+
+	* Added ARGV_XOR functionality.
+
+Tue Aug 10 22:36:33 1993  Gray Watson  ()
+
+	* Added -D=5 functionality.  Nots of notes, manual, changes.
+	Added strstr to config and compat.
+
+Fri Aug  6 01:14:29 1993  Gray Watson  ()
+
+	* Removed LGPL copyright and put in its place fully free
+	software notices.
+
+Thu Aug  5 19:48:08 1993  Gray Watson  ()
+
+	* Made some cleanups.  Added compat.c file because of strdup
+	(maybe more).  Fixed problem with not reporting extra or missing
+	mandatory args -- how did this get in there?
+
+Wed Jul 21 12:07:15 1993  Gray Watson  ()
+
+	* Released version 1.5 with various minor changes.
+
+	* conf.h -> config.h to remove some configure problems.
+
+Tue Jul 20 01:15:49 1993  Gray Watson  ()
+
+	* Added ARGV_BOOL_NEG for booleans that get set to false if used.
+
+	* Added lots of files and configuration scripts.  Started the
+	manual and created port directory.
+
+Fri Jul 16 00:17:17 1993  Gray Watson  ()
+
+	* Added ARGV_MAYBE and probably some creepy crawlies.  Fixed the
+	argv_usage for it and new ARGV_ARRAY_ENTRY for array items.
+
+Thu Jul 15 15:46:49 1993  Gray Watson  ()
+
+	* Released version 1.3.
+
+	* Removed ARGV_MORE and ARGV_PROCESS and argv_process now returns
+	void.  ARGV_MAND's can now be anywhere in the argv list and can
+	handle ARGV_ARRAY.  If we have a mand array then no more mands can
+	follow it and it will absorb 0 to ~ arguments.
+
+Tue Jul 13 01:45:46 1993  Gray Watson  ()
+
+	* Upgraded to version 1.3.  Minor changes made to notes files.
+	Global Makefile added.
+
+Mon Jul 12 02:01:57 1993  Gray Watson  ()
+
+	* Fixed up default printing of long special-options.
+
+Fri Jul  2 19:53:07 1993  Gray Watson  ()
+
+	* Went to version 1.2.  Cleaned short-option a bit.
+
+	* Added short-option help.  Needs to be cleaned up a bit but looks
+	pretty good.
+
+Sat Jun 26 16:01:22 1993  Gray Watson  ()
+
+	* Added Manifest file, README's and other exported stuff.
+
+	* Added copyrights and COPYING-LIB and other misc cleanups.
+
+	* Added array processing.  Moved arg_t -> argv_t and created
+	argv_array_t.  Better --usage, --version, --help handling.
+
+Fri Jun 25 14:58:07 1993  Gray Watson  ()
+
+	* Finally complete de-local'izing the code.  It needs the normal
+	porting scripts and configure but looks pretty good.
+
+-------------------------------------------------------------------------------
+$Id: ChangeLog,v 1.94 2010/02/15 13:59:37 gray Exp $
+-------------------------------------------------------------------------------

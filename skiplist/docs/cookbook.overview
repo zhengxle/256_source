@@ -1,0 +1,51 @@
+		   A Skip List Cookbook
+
+	William Pugh, Department of Computer Science 
+	and Institute for Advanced Computer Studies,
+	   University of Maryland, College Park
+
+			Overview
+
+Skip lists are a probabilistic list-based data structure that are a 
+simple and efficient substitute for balanced trees. Probabilistic 
+balancing also can be used for tree based data structures. Previously, 
+we showed how skip lists could be used to implement a dictionary 
+abstract data type (i.e., implement search, insertion and deletion). In 
+this paper, we show that skip lists are as versatile as balanced trees. 
+We describe and analyze algorithms to:
+ * use search fingers so that searching for an element k away from the
+   last element searched for takes O(log k) expected time, 
+ * merge, split and concatenate skip lists, and
+ * implement linear list operations using skip lists (e.g., "insert this
+   after the kth element of the list"). 
+These operations have been described for balanced trees. However, the 
+skip list versions of these algorithms are simpler and at least as fast, 
+and often cannot be easily adapted directly from the balanced trees 
+algorithms. The analysis techniques required for the skip list versions 
+are radically different from the techniques used to analyze their 
+balanced tree cousins. 
+    The merge algorithm we describe has better asymptotic time 
+complexity than any previously described merge algorithm (such as Brown 
+and Tarjan's). This claim may seem ludicrous, since the O(m + m log n/m) 
+upper bound of Brown and Tarjan was proven to be a lower bound. But that 
+lower bound only holds for the worst-case input (uniformly distributed 
+merges). Our algorithm is optimal for all inputs. If two data structures 
+simply need to be concatenated, our algorithm runs in O(log n) expected 
+time, while that of Brown and Tarjan runs in O(m + log n) time. Of 
+course, there are algorithms that concatenate two balanced trees in 
+O(log n) time. However, our algorithm optimally handles both uniformly 
+distributed merges and concatenation, as well as everything in between. 
+Our strategy for merging skip lists can be applied to balanced trees, 
+providing merge algorithms for balanced trees that are optimal for all 
+inputs (although the algorithms would be prohibitively complicated). 
+     We also describe and analyze variations that noticeably simplify or 
+improve skip list algorithms. 
+
+This paper will appear in Distributed Computer. It is also available as 
+Tech Report CSPTRP2286.1, Dept. of Computer Science, University of 
+Maryland, College Park, July 1989. A Postscript format version of this 
+paper is available for anonymous ftp from mimsy.cs.umd.edu. 
+
+The author can be contacted at pugh@cs.umd.edu.
+
+

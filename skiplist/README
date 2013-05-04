@@ -1,0 +1,54 @@
+-------------------------------------------------------------------------------
+$Id: README,v 1.2 1998/03/25 01:32:26 gray Exp $
+-------------------------------------------------------------------------------
+
+BACKGROUND:
+
+This Skiplist library was written by Bill Pugh from the Department of
+Computer Science and Institute for Advanced Computer Studies,
+University of Maryland.  It is a generic alternative to balanced trees
+with a significantly simpler implementation with low power overhead
+and other benefits.
+
+The library in its initial form was designed for strings only.  It has
+been heavily hacked by Gray Watson to make it handle abstract data
+types, to improve code readability, and to improve general library
+functionality.
+
+You also can mmap a skiplist directly from disk for high performance
+access of a read-only list.  To get mmap functions you will need to
+remove the NO_MMAP flag from the Makefile.  You may have the play with
+the mmap defines to get it to compile on your system.
+
+See the skip_t.c file for usage examples and skip.h for the function
+prototypes and comments.  Initial reference source code and
+documentation about the skiplist principles can be found in the docs/
+directory.
+
+-------------------------------------------------------------------------------
+
+INSTALLATION:
+
+1) Typing 'make' should be enough to build libskip.a.
+
+2) Typing 'make tests' should make the skip_t test program.
+
+-------------------------------------------------------------------------------
+
+REPOSITORY:
+
+The newest versions of the library are available via anonymous ftp
+from ftp.letters.com in the /src/skip directory.
+
+	ftp://ftp.letters.com/src/skip/
+
+-------------------------------------------------------------------------------
+
+AUTHOR:
+
+If you have any questions or problems feel free to send me mail.
+
+Gray Watson
+http://256.com/gray/
+
+-------------------------------------------------------------------------------

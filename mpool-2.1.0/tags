@@ -1,0 +1,168 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.6	//
+BIT_CLEAR	mpool_loc.h	42;"	d
+BIT_FLAG	mpool_loc.h	40;"	d
+BIT_IS_SET	mpool_loc.h	43;"	d
+BIT_SET	mpool_loc.h	41;"	d
+BIT_TOGGLE	mpool_loc.h	44;"	d
+BLOCK_FLAG_FREE	mpool_loc.h	54;"	d
+BLOCK_FLAG_USED	mpool_loc.h	53;"	d
+BLOCK_MAGIC	mpool_loc.h	28;"	d
+CC	Makefile	/^CC	= cc$/;"	m
+CFLAGS	Makefile	/^CFLAGS	= -g -I. $(DEFINES)$/;"	m
+DEFAULT_ITERATIONS	mpool_t.c	44;"	d	file:
+DEFAULT_PAGE_MULT	mpool_loc.h	56;"	d
+DESTDIR	Makefile	/^DESTDIR	= \/usr\/local$/;"	m
+FENCE_MAGIC0	mpool_loc.h	29;"	d
+FENCE_MAGIC1	mpool_loc.h	30;"	d
+FENCE_SIZE	mpool_loc.h	32;"	d
+FIRST_ADDR_IN_BLOCK	mpool_loc.h	67;"	d
+HFLS	Makefile	/^HFLS	= mpool.h$/;"	m
+LDFLAGS	Makefile	/^LDFLAGS	=$/;"	m
+LIBRARY	Makefile	/^LIBRARY	= libmpool.a$/;"	m
+MAX_ALLOC	mpool_t.c	46;"	d	file:
+MAX_BITS	mpool_loc.h	63;"	d
+MAX_BLOCK_USER_MEMORY	mpool_loc.h	65;"	d
+MAX_FREE_LIST_SEARCH	mpool_loc.h	35;"	d
+MAX_FREE_SEARCH	mpool_loc.h	34;"	d
+MAX_POINTERS	mpool_t.c	45;"	d	file:
+MEMORY_IN_BLOCK	mpool_loc.h	69;"	d
+MIN_ALLOCATION	mpool_loc.h	33;"	d
+MIN_AVAIL	mpool_t.c	47;"	d	file:
+MPOOL_ERROR_ALLOC	mpool.h	91;"	d
+MPOOL_ERROR_ARG_INVALID	mpool.h	74;"	d
+MPOOL_ERROR_ARG_NULL	mpool.h	73;"	d
+MPOOL_ERROR_BLOCK_STAT	mpool.h	87;"	d
+MPOOL_ERROR_FREE_ADDR	mpool.h	88;"	d
+MPOOL_ERROR_IS_FREE	mpool.h	86;"	d
+MPOOL_ERROR_MEM	mpool.h	83;"	d
+MPOOL_ERROR_MEM_OVER	mpool.h	84;"	d
+MPOOL_ERROR_MMAP	mpool.h	80;"	d
+MPOOL_ERROR_NONE	mpool.h	72;"	d
+MPOOL_ERROR_NOT_FOUND	mpool.h	85;"	d
+MPOOL_ERROR_NO_MEM	mpool.h	79;"	d
+MPOOL_ERROR_NO_PAGES	mpool.h	90;"	d
+MPOOL_ERROR_OPEN_ZERO	mpool.h	78;"	d
+MPOOL_ERROR_PAGE_SIZE	mpool.h	77;"	d
+MPOOL_ERROR_PNT	mpool.h	75;"	d
+MPOOL_ERROR_PNT_OVER	mpool.h	92;"	d
+MPOOL_ERROR_POOL_OVER	mpool.h	76;"	d
+MPOOL_ERROR_SBRK_CONTIG	mpool.h	89;"	d
+MPOOL_ERROR_SIZE	mpool.h	81;"	d
+MPOOL_ERROR_TOO_BIG	mpool.h	82;"	d
+MPOOL_FLAG_BEST_FIT	mpool.h	37;"	d
+MPOOL_FLAG_HEAVY_PACKING	mpool.h	61;"	d
+MPOOL_FLAG_NO_FREE	mpool.h	46;"	d
+MPOOL_FLAG_USE_SBRK	mpool.h	67;"	d
+MPOOL_FUNC_ALLOC	mpool.h	99;"	d
+MPOOL_FUNC_CALLOC	mpool.h	100;"	d
+MPOOL_FUNC_CLEAR	mpool.h	98;"	d
+MPOOL_FUNC_CLOSE	mpool.h	97;"	d
+MPOOL_FUNC_FREE	mpool.h	101;"	d
+MPOOL_FUNC_RESIZE	mpool.h	102;"	d
+MPOOL_MAGIC	mpool_loc.h	27;"	d
+MPOOL_MAIN	mpool.c	47;"	d	file:
+OBJS	Makefile	/^OBJS	= mpool.o$/;"	m
+PAGES_IN_SIZE	mpool_loc.h	59;"	d
+RANDOM_VALUE	mpool_t.c	49;"	d	file:
+RANLIB	Makefile	/^RANLIB	= ranlib$/;"	m
+SET_POINTER	mpool_loc.h	46;"	d
+SIZE_OF_PAGES	mpool_loc.h	62;"	d
+TEST	Makefile	/^TEST	= mpool_t$/;"	m
+__MPOOL_H__	mpool.h	25;"	d
+__MPOOL_LOC_H__	mpool_loc.h	25;"	d
+alloc_mem	mpool.c	/^static	void	*alloc_mem(mpool_t *mp_p, const unsigned long byte_size,$/;"	f	file:
+alloc_pages	mpool.c	/^static	void	*alloc_pages(mpool_t *mp_p, const unsigned int page_n,$/;"	f	file:
+best_fit_b	mpool_t.c	/^static	int		best_fit_b = 0;			\/* set best fit flag *\/$/;"	v	file:
+bit_array	mpool.c	/^static	unsigned long	bit_array[MAX_BITS + 1]; \/* size -> bit *\/$/;"	v	file:
+bits_to_size	mpool.c	/^static	unsigned long	bits_to_size(const int bit_n)$/;"	f	file:
+check_magic	mpool.c	/^static	int	check_magic(const void *addr, const unsigned long size)$/;"	f	file:
+default_iter_n	mpool_t.c	/^static	int		default_iter_n = DEFAULT_ITERATIONS; \/* # of iters *\/$/;"	v	file:
+do_interactive	mpool_t.c	/^static	void	do_interactive(mpool_t *pool)$/;"	f	file:
+do_random	mpool_t.c	/^static	void	do_random(mpool_t *pool, const int iter_n)$/;"	f	file:
+enabled_b	mpool.c	/^static	int		enabled_b = 0;		\/* lib initialized? *\/$/;"	v	file:
+free_mem	mpool.c	/^static	int	free_mem(mpool_t *mp_p, void *addr, const unsigned long size)$/;"	f	file:
+free_pages	mpool.c	/^static	int	free_pages(void *pages, const unsigned long size,$/;"	f	file:
+free_pointer	mpool.c	/^static	int	free_pointer(mpool_t *mp_p, void *addr,$/;"	f	file:
+get_address	mpool_t.c	/^static	void	*get_address(void)$/;"	f	file:
+get_space	mpool.c	/^static	void	*get_space(mpool_t *mp_p, const unsigned long byte_size,$/;"	f	file:
+heavy_pack_b	mpool_t.c	/^static	int		heavy_pack_b = 0;		\/* set heavy pack flg*\/$/;"	v	file:
+hex_to_long	mpool_t.c	/^static	long	hex_to_long(const char *str)$/;"	f	file:
+interactive_b	mpool_t.c	/^static	int		interactive_b = 0;		\/* interactive flag *\/$/;"	v	file:
+log_func	mpool_t.c	/^static	void	log_func(const void *mp_p, const int func_id,$/;"	f	file:
+log_trxn_b	mpool_t.c	/^static	int		log_trxn_b = 0; 		\/* log mem trxns *\/$/;"	v	file:
+main	mpool_t.c	/^int	main(int argc, char **argv)$/;"	f
+max_alloc	mpool_t.c	/^static	long		max_alloc = MAX_ALLOC;		\/* amt of mem to use *\/$/;"	v	file:
+max_pages_n	mpool_t.c	/^static	int		max_pages_n = 0;		\/* max # pages *\/$/;"	v	file:
+max_pointers	mpool_t.c	/^static	int		max_pointers = MAX_POINTERS;	\/* # of pnts to use *\/$/;"	v	file:
+mb_bounds_p	mpool_loc.h	/^  void			*mb_bounds_p;	\/* block boundary location *\/$/;"	m	struct:mpool_block_st
+mb_magic	mpool_loc.h	/^  unsigned int		mb_magic;	\/* magic number for block header *\/$/;"	m	struct:mpool_block_st
+mb_magic2	mpool_loc.h	/^  unsigned int		mb_magic2;	\/* upper magic for overwrite sanity *\/$/;"	m	struct:mpool_block_st
+mb_next_p	mpool_loc.h	/^  struct mpool_block_st	*mb_next_p;	\/* linked list next pointer *\/$/;"	m	struct:mpool_block_st	typeref:struct:mpool_block_st::mpool_block_st
+mf_next_p	mpool_loc.h	/^  void			*mf_next_p;	\/* pointer to the next free address *\/$/;"	m	struct:__anon2
+mf_size	mpool_loc.h	/^  unsigned long		mf_size;	\/* size of the free block *\/$/;"	m	struct:__anon2
+min_bit_free_next	mpool.c	/^static	unsigned int	min_bit_free_next = 0;	\/* min size of next pnt *\/$/;"	v	file:
+min_bit_free_size	mpool.c	/^static	unsigned int	min_bit_free_size = 0;	\/* min size of next + size *\/$/;"	v	file:
+mp_addr	mpool_loc.h	/^  void			*mp_addr;	\/* current address for mmaping *\/$/;"	m	struct:__anon1
+mp_alloc_c	mpool_loc.h	/^  unsigned long		mp_alloc_c;	\/* number of allocations *\/$/;"	m	struct:__anon1
+mp_bounds_p	mpool_loc.h	/^  void			*mp_bounds_p;	\/* max address in pool for checks *\/$/;"	m	struct:__anon1
+mp_fd	mpool_loc.h	/^  int			mp_fd;		\/* fd for \/dev\/zero if mmap-ing *\/$/;"	m	struct:__anon1
+mp_first_p	mpool_loc.h	/^  struct mpool_block_st	*mp_first_p;	\/* first memory block we are using *\/$/;"	m	struct:__anon1	typeref:struct:__anon1::mpool_block_st
+mp_flags	mpool_loc.h	/^  unsigned int		mp_flags;	\/* flags for the struct *\/$/;"	m	struct:__anon1
+mp_free	mpool_loc.h	/^  struct mpool_block_st	*mp_free[MAX_BITS + 1]; \/* free lists based on size *\/$/;"	m	struct:__anon1	typeref:struct:__anon1::mpool_block_st
+mp_last_p	mpool_loc.h	/^  struct mpool_block_st	*mp_last_p;	\/* last memory block we are using *\/$/;"	m	struct:__anon1	typeref:struct:__anon1::mpool_block_st
+mp_log_func	mpool_loc.h	/^  mpool_log_func_t	mp_log_func;	\/* log callback function *\/$/;"	m	struct:__anon1
+mp_magic	mpool_loc.h	/^  unsigned int		mp_magic;	\/* magic number for struct *\/$/;"	m	struct:__anon1
+mp_magic2	mpool_loc.h	/^  unsigned int		mp_magic2;	\/* upper magic for overwrite sanity *\/$/;"	m	struct:__anon1
+mp_max_alloc	mpool_loc.h	/^  unsigned long		mp_max_alloc;	\/* maximum user bytes allocated *\/$/;"	m	struct:__anon1
+mp_max_pages	mpool_loc.h	/^  unsigned int		mp_max_pages;	\/* maximum number of pages to use *\/$/;"	m	struct:__anon1
+mp_min_p	mpool_loc.h	/^  void			*mp_min_p;	\/* min address in pool for checks *\/$/;"	m	struct:__anon1
+mp_page_c	mpool_loc.h	/^  unsigned int		mp_page_c;	\/* number of pages allocated *\/$/;"	m	struct:__anon1
+mp_page_size	mpool_loc.h	/^  unsigned int		mp_page_size;	\/* page-size of our system *\/$/;"	m	struct:__anon1
+mp_top	mpool_loc.h	/^  off_t			mp_top;		\/* top of our allocations in fd *\/ $/;"	m	struct:__anon1
+mp_user_alloc	mpool_loc.h	/^  unsigned long		mp_user_alloc;	\/* user bytes allocated *\/$/;"	m	struct:__anon1
+mpool_alloc	mpool.c	/^void	*mpool_alloc(mpool_t *mp_p, const unsigned long byte_size,$/;"	f
+mpool_block_st	mpool_loc.h	/^typedef struct mpool_block_st {$/;"	s
+mpool_block_t	mpool_loc.h	/^} mpool_block_t;$/;"	t	typeref:struct:mpool_block_st
+mpool_calloc	mpool.c	/^void	*mpool_calloc(mpool_t *mp_p, const unsigned long ele_n,$/;"	f
+mpool_clear	mpool.c	/^int	mpool_clear(mpool_t *mp_p)$/;"	f
+mpool_close	mpool.c	/^int	mpool_close(mpool_t *mp_p)$/;"	f
+mpool_ext_t	mpool_loc.h	/^typedef mpool_t	mpool_ext_t;$/;"	t
+mpool_free	mpool.c	/^int	mpool_free(mpool_t *mp_p, void *addr, const unsigned long size)$/;"	f
+mpool_free_t	mpool_loc.h	/^} mpool_free_t;$/;"	t	typeref:struct:__anon2
+mpool_log_func_t	mpool.h	/^typedef void	(*mpool_log_func_t)(const void *mp_p,$/;"	t
+mpool_open	mpool.c	/^mpool_t	*mpool_open(const unsigned int flags, const unsigned int page_size,$/;"	f
+mpool_resize	mpool.c	/^void	*mpool_resize(mpool_t *mp_p, void *old_addr,$/;"	f
+mpool_set_log_func	mpool.c	/^int	mpool_set_log_func(mpool_t *mp_p, mpool_log_func_t log_func)$/;"	f
+mpool_set_max_pages	mpool.c	/^int	mpool_set_max_pages(mpool_t *mp_p, const unsigned int max_pages)$/;"	f
+mpool_stats	mpool.c	/^int	mpool_stats(const mpool_t *mp_p, unsigned int *page_size_p,$/;"	f
+mpool_strerror	mpool.c	/^const char	*mpool_strerror(const int error)$/;"	f
+mpool_t	mpool.h	/^typedef	void	mpool_t;$/;"	t
+mpool_t	mpool_loc.h	/^} mpool_t;$/;"	t	typeref:struct:__anon1
+no_free_b	mpool_t.c	/^static	int		no_free_b = 0;			\/* set no free flag *\/$/;"	v	file:
+page_size	mpool_t.c	/^static	long		page_size = 0;			\/* mpool pagesize *\/$/;"	v	file:
+pi_crc	mpool_t.c	/^  long			pi_crc;			\/* crc of storage *\/$/;"	m	struct:pnt_info_st	file:
+pi_next	mpool_t.c	/^  struct pnt_info_st	*pi_next;		\/* pnt to next *\/$/;"	m	struct:pnt_info_st	typeref:struct:pnt_info_st::pnt_info_st	file:
+pi_pnt	mpool_t.c	/^  void			*pi_pnt;		\/* pnt to storage *\/$/;"	m	struct:pnt_info_st	file:
+pi_size	mpool_t.c	/^  long			pi_size;		\/* size of storage *\/$/;"	m	struct:pnt_info_st	file:
+pnt_info_st	mpool_t.c	/^struct pnt_info_st {$/;"	s	file:
+pnt_info_t	mpool_t.c	/^typedef struct pnt_info_st pnt_info_t;$/;"	t	typeref:struct:pnt_info_st	file:
+pointer_grid	mpool_t.c	/^static	pnt_info_t	*pointer_grid;$/;"	v	file:
+process_args	mpool_t.c	/^static	void	process_args(int argc, char ** argv)$/;"	f	file:
+rcs_id	mpool.c	/^static char *rcs_id = "$Id: mpool.c,v 1.5 2006\/05\/31 20:28:31 gray Exp $";$/;"	v	file:
+rcs_id	mpool_t.c	/^static char *rcs_id = "$Id: mpool_t.c,v 1.2 2005\/05\/20 20:08:55 gray Exp $";$/;"	v	file:
+seed_random	mpool_t.c	/^static	unsigned int	seed_random = 0;		\/* random seed *\/$/;"	v	file:
+size_to_bits	mpool.c	/^static	int	size_to_bits(const unsigned long size)$/;"	f	file:
+size_to_free_bits	mpool.c	/^static	int	size_to_free_bits(const unsigned long size)$/;"	f	file:
+split_block	mpool.c	/^static	int	split_block(mpool_t *mp_p, void *free_addr,$/;"	f	file:
+startup	mpool.c	/^static	void	startup(void)$/;"	f	file:
+usage	mpool_t.c	/^static	void	usage(void)$/;"	f	file:
+use_malloc_b	mpool_t.c	/^static	int		use_malloc_b = 0; 		\/* use system alloc *\/$/;"	v	file:
+use_sbrk_b	mpool_t.c	/^static	int		use_sbrk_b = 0;			\/* use sbrk not mmap *\/$/;"	v	file:
+verbose_b	mpool_t.c	/^static	int		verbose_b = 0;			\/* verbose flag *\/$/;"	v	file:
+version	mpool.c	/^static	char *version = "mpool library version 2.1.0";$/;"	v	file:
+write_magic	mpool.c	/^static	void	write_magic(const void *addr)$/;"	f	file:

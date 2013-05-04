@@ -1,0 +1,77 @@
+-------------------------------------------------------------------------------
+
+2.3 Installing the Library
+==========================
+
+To configure, compile, and install the library, follow these steps
+carefully.
+
+  1. Type `sh ./configure' to configure the library.  You may want to
+     first examine the `config.help' file for some information about
+     configure.  Configure should generate the `Makefile' and some
+     configuration files automatically.
+
+     _NOTE_: It seems that some versions of tr (especially from HP-UX)
+     don't understand `tr '[a-z]' '[A-Z]''.  Since configure uses tr
+     often, you may need to either get GNU's tr (in their textutils
+     package) or generate the `Makefile' and `conf.h' files by hand.
+
+  2. You may want to examine the `Makefile' and `conf.h' files created
+     by configure to make sure it did its job correctly.
+
+  3. Typing `make' should be enough to build `libargv.a' and the
+     `argv_shell' utility.  If it does not work, please send me some
+     notes so future users can profit from your experiences.
+
+     _NOTE_: The code is pretty dependent on a good ANSI-C compiler.  If
+     the configure script gives the `WARNING' that you do not have an
+     ANSI-C compiler, you may still be able to add some sort of option
+     to your compiler to make it ANSI.  If there such is an option,
+     please send it to the author so it can be added to the configure
+     script.
+
+  4. Typing `make tests' should build the `argv_t' test program.  This
+     can be run and given arguments to test the various library
+     features.
+
+  5. Typing `make install' should install the `libargv.a' library in
+     `/usr/local/lib', the `argv_shell' utility in `/usr/local/bin',
+     and the `argv.info' documentation file in `/usr/local/info'.
+
+     You may have specified a `--prefix=PATH' option to configure in
+     which can `/usr/local' will have been replaced with `PATH'.
+
+
+   See the Getting Started section to get up and running with the
+library.  *Note Getting Started::.
+
+
+-------------------------------------------------------------------------------
+
+2.4 Getting Started with the Library
+====================================
+
+This section should give you a quick idea on how to get going.
+
+  1. Make sure you have the latest version of the library.  It is
+     available on the web at `http://256.com/sources/argv/'.  *Note How
+     To Get::.
+
+  2. Follow the installation instructions on how to configure and make
+     and install the library (i.e. type: `make install').  *Note
+     Installation::.
+
+  3. Examine the `argv_t.c' test program source to see an example of
+     how to program with the library.  After adding the appropriate
+     `argv_t' structure array to your main source file, you need to
+     compile and link your programs with the library.
+
+  4. The first time your program is run, the library makes a number of
+     checks as to the validity of the argument structures being used.
+     You may have to note and fix reported problems.
+
+  5. Run your program with the `--usage' argument and voila.
+
+
+
+-------------------------------------------------------------------------------

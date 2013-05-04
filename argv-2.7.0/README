@@ -1,0 +1,79 @@
+-------------------------------------------------------------------------------
+
+Argv Library
+************
+
+Version 2.7.0 - February 2010
+
+The argv library has been designed to handle the argument processing
+needs of most Unix software and to provide a consistent usage framework
+for user applications.
+
+   The library is reasonably portable having been run successfully on at
+least the following operating systems: AIX, BSDI, DG/UX, FreeBSD, HPUX,
+Irix, Linux, MS-DOG, NeXT, OSF, Solaris, SunOS, Ultrix, Unixware, and
+even Unicos on a Cray Y-MP.
+
+   The package includes the library, configuration scripts, shell-script
+utility application, test program, and extensive documentation (text,
+texi, info, ps).  The library and its documentation are available online
+at URL `http://256.com/sources/argv/'.  *Note How To Get::.
+
+   I can be reached via my web page `http://256.com/gray/' with any
+questions or feedback.  Please include the version number of the library
+that you are using as well as your machine and operating system types.
+
+   Gray Watson.
+
+-------------------------------------------------------------------------------
+
+2.2 How to get the library.
+===========================
+
+The newest versions of the argv library are available on the web at
+`http://256.com/sources/argv/'.
+
+   The versions in this repository also include such files as a
+postscript version of the manual and other large files which may not
+have been included in the distribution you received.
+
+
+-------------------------------------------------------------------------------
+
+See the INSTALL file for building, installation, and quick-start notes.
+
+-------------------------------------------------------------------------------
+
+DOCUMENTATION:
+
+Examine the argv.html file which contains the user-documentation for
+the argv subsystem.  It currently is lacking and may contain incorrect
+information but should be better than nothing.  A texinfo version of
+the documentation is also provided with which you can generate
+hardcopy output with the help of the texinfo.tex file.
+
+-------------------------------------------------------------------------------
+
+INCLUDING ARGV IN OTHER PROGRAMS:
+
+You are free to distribute the source for the library in other program
+distributions under the terms of the copyright.  You should only need
+the argv.c, argv.h, and argv_loc.h files plus any part of compat.c as
+necessary.  You should obey the Copyright notices and keep the headers
+in each file.
+
+Please inform me of situations where the library does not fit well
+with your programs current argument processing facilities.
+
+-------------------------------------------------------------------------------
+
+AUTHOR:
+
+If you have any questions or problems feel free to send me mail.
+
+Gray Watson
+http://256.com/gray/
+
+-------------------------------------------------------------------------------
+$Id: README.1,v 1.18 2000/03/07 23:33:21 gray Exp $
+-------------------------------------------------------------------------------

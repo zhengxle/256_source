@@ -1,0 +1,142 @@
+###############################################################################
+# Makefile for the Argv library.
+# $Id: Makefile.all.in,v 1.32 2006/09/22 22:45:40 gray Exp $
+###############################################################################
+
+# default root installation directory
+prefix = @prefix@
+exec_prefix = @exec_prefix@
+
+srcdir = @srcdir@
+VPATH = @srcdir@
+
+bindir = $(exec_prefix)/bin
+libdir = $(exec_prefix)/lib
+incdir = $(prefix)/include
+
+# default c-compiler
+CC = @CC@
+
+DEFS	= -DHAVE_STDLIB_H=@HAVE_STDLIB_H@ \
+	-DHAVE_STRING_H=@HAVE_STRING_H@ \
+	-DHAVE_UNISTD_H=@HAVE_UNISTD_H@ \
+	$(DEFINES)
+INCS = -I. -I$(srcdir)
+LIBS = -L. @LIBS@
+
+LIBNAME = argv
+LIBRARY	= lib$(LIBNAME).a
+UTIL = argv_shell
+
+CCFLAGS = -g
+#LDFLAGS = -g
+LDFLAGS =
+
+INSTALL = @INSTALL@
+INSTALL_PROGRAM = @INSTALL_PROGRAM@
+INSTALL_DATA = @INSTALL_DATA@
+
+###############################################################################
+# End of system configuration section.
+###############################################################################
+
+SHELL = /bin/sh
+
+HFLS = argv.h
+OBJS = argv.o compat.o
+
+CFLAGS = $(CCFLAGS)
+TEST = argv_t
+
+all : $(LIBRARY) $(UTIL)
+
+clean :
+	rm -f a.out core *.o *.t
+	rm -f $(LIBRARY) $(TEST) $(UTIL) argv.h
+
+realclean : clean
+
+distclean : clean
+	rm -f confdefs.h config.status config.log config.cache conf.h
+	rm -f Makefile argv.h.2
+#	rm -f configure
+
+installdirs :
+	$(srcdir)/mkinstalldirs $(incdir) $(libdir)
+
+installincs : $(HFLS)
+	$(INSTALL_DATA) $(HFLS) $(incdir)
+
+installlib : installincs $(LIBRARY)
+	$(INSTALL_DATA) $(LIBRARY) $(libdir)
+	@RANLIB@ $(libdir)/$(LIBRARY)
+
+install : installdirs installlib $(UTIL)
+	$(INSTALL_PROGRAM) $(UTIL) $(bindir)
+
+argv.h.2 : configure
+	$(SHELL) configure
+
+argv.h : $(srcdir)/argv.h.1 argv.h.2 $(srcdir)/argv.h.3
+	rm -f $@ $@.t
+	cat $(srcdir)/argv.h.1 argv.h.2 $(srcdir)/argv.h.3 > $@.t
+	mv $@.t $@
+
+argv_web.h : $(srcdir)/argv_web.h.1 argv.h.2 $(srcdir)/argv_web.h.3
+	rm -f $@ $@.t
+	cat $(srcdir)/argv_web.h.1 argv.h.2 $(srcdir)/argv_web.h.3 > $@.t
+	mv $@.t $@
+
+$(LIBRARY) : $(OBJS)
+	ar cr $(LIBRARY) $?
+	@RANLIB@ $@
+
+utils : $(UTIL)
+
+$(UTIL) : $(UTIL).o $(LIBRARY)
+	rm -f $@
+	$(CC) $(LDFLAGS) $(UTIL).o $(LIBS) -l$(LIBNAME)
+	mv a.out $@
+
+tests : $(TEST)
+	./$(TEST)
+
+$(TEST) : $(TEST).o $(LIBRARY)
+	rm -f $@
+	$(CC) $(LDFLAGS) $(TEST).o $(LIBS) -l$(LIBNAME)
+	mv a.out $@
+
+.c.o :
+	rm -f $@
+	$(CC) $(CFLAGS) $(CPPFLAGS) $(DEFS) $(INCS) -c $< -o $@
+
+.texi.info :
+	makeinfo --no-split $<
+
+#
+# auto configure settings - uncomment if you are doing configure
+# development on the library
+#
+
+#Makefile : $(srcdir)/Makefile.in
+#	$(SHELL) config.status
+
+#conf.h : $(srcdir)/conf.h.in
+#	$(SHELL) config.status
+
+#config.status : $(srcdir)/configure
+#	$(SHELL) config.status --recheck
+
+#configure : $(srcdir)/configure.in
+#	cd $(srcdir); autoconf
+
+###############################################################################
+#
+# These dependencies are automatically generated.  Do not edit by hand.
+#
+
+argv.o: argv.c argv.h argv_loc.h
+argv_shell.o: argv_shell.c argv.h argv_loc.h
+argv_t.o: argv_t.c argv.h
+argv_web.o: argv_web.c argv.h argv_web.h argv_loc.h
+compat.o: compat.c argv_loc.h argv.h conf.h compat.h
